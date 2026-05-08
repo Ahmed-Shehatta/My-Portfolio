@@ -95,11 +95,34 @@
     /* ABOUT */
     .abtcon {
       max-width: 800px;
-      margin: 8rem auto 4rem;
-      padding: 2rem;
+      margin: 12rem auto 4rem;
+      padding: 4rem;
+      padding-top: 8rem; /* مساحة للصورة */
       background-color: #0d0d0d;
       border: 0.5px solid #B8973A;
       border-radius: 5px;
+      position: relative; /* مهم عشان الصورة تتحسب منه */
+    }
+
+    /* الصورة الدائرية */
+    .profile-img-wrapper {
+      position: absolute;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2.5px solid #B8973A;
+      overflow: hidden;
+      background-color: #1c1c1c;
+    }
+
+    .profile-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .who {
@@ -108,6 +131,7 @@
       font-weight: 300;
       color: #B8973A;
       text-align: center;
+      margin-top: 1rem;
       margin-bottom: 1.5rem;
     }
 
@@ -201,7 +225,7 @@
 
       .nav-links.open { display: flex; }
 
-      .abtcon { margin-top: 6rem; }
+      .abtcon { margin-top: 7rem; }
     }
   </style>
 </head>
@@ -223,13 +247,17 @@
   </nav>
 
   <div class="abtcon">
+
+    <!-- الصورة الدائرية فوق العنوان -->
+    <div class="profile-img-wrapper">
+      <img src="me1.webp" alt="Ahmed Shehata">
+      <!-- غير your-photo.jpg لاسم صورتك الحقيقي -->
+    </div>
+
     <h2 class="who">Who Is Ahmed</h2>
     <p class="wh">
-      I started working when I was 14, without a clear plan. I was simply looking for a way to build skills that
-      actually have value and can generate real income. At the age of 15, I began focusing on self-learning, believing
-      it would be more valuable than relying solely on traditional school — driven by curiosity and a passion for
-      building real-world skills beyond traditional education. Since then, I've focused on learning by doing —
-      developing projects, solving problems, and continuously improving my technical abilities.
+      I'm a WordPress Developer focused on building clean, functional websites that help businesses grow online. I specialize in WordPress, Elementor, and WooCommerce — covering everything from business portfolios to full e-commerce stores.
+      I'm self-taught and results-driven, with a hands-on approach to every project — from initial design to final deployment.
     </p>
   </div>
 
