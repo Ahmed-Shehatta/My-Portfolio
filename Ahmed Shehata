@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ahmed Shehata — Web Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="wow.css">
   <style>
-
-    :before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --primary:       #26187c;
@@ -39,7 +37,7 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY */
+    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -489,7 +487,7 @@
     .links a:hover {
       color: var(--accent);
       border-color: rgba(246,247,255,0.4);
-      background: #6156bd;
+      background: rgba(246,247,255,0.07);
     }
 
     .bottom {
@@ -552,7 +550,7 @@
       section { padding: 4rem 1.5rem; }
       .contact-section { padding: 40px 24px; margin: 20px 16px; }
       .hero-actions { flex-direction: column; align-items: center; }
-    } */
+    }
   </style>
 </head>
 <body>
