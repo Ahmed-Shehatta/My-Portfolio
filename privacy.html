@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <title>Privacy Policy — Ahmed Shehata</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --gold: #b8973a;
-      --gold-light: #d4b05a;
-      --dark: #0d0d0d;
-      --dark-2: #141414;
-      --dark-3: #1c1c1c;
-      --text: #e8e4dc;
-      --text-muted: #7a7570;
-      --border: rgba(184, 151, 58, 0.2);
+      --primary:       #26187c;
+      --primary-light: #3a2a9e;
+      --primary-dark:  #1a1057;
+      --primary-glow:  rgba(38, 24, 124, 0.35);
+      --accent:        #f6f7ff;
+      --accent-dim:    rgba(246, 247, 255, 0.55);
+      --accent-faint:  rgba(246, 247, 255, 0.12);
+      --accent-border: rgba(246, 247, 255, 0.18);
+      --dark:          #08061a;
+      --dark-2:        #0e0b26;
+      --dark-3:        #150f30;
+      --text:          #f6f7ff;
+      --text-muted:    rgba(246, 247, 255, 0.45);
+      --border:        rgba(246, 247, 255, 0.12);
+      --gold:          #a78bfa;
+      --gold-light:    #c4b5fd;
+      --purple:        #6f5edb;
     }
 
     html { scroll-behavior: smooth; }
@@ -38,340 +38,669 @@
       overflow-x: hidden;
     }
 
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 600;
-      color: #b8973a;
-      letter-spacing: 0.05em;
-      line-height: 1.1;
-    }
-
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 600;
-      color: #b8973a;
-      letter-spacing: 0.05em;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      font-weight: 600;
-      color: #b8973a;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      line-height: 1.4;
-    }
-
-    h4 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      font-weight: 200;
-      color: #b8973a;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      line-height: 1.6;
-    }
-
-    p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
-      font-weight: 300;
-      color: white;
-      line-height: 1.8;
-      max-width: 600px;
-      text-align: center;
-      margin: 0 auto;
-    }
-
-    span { font-weight: bold; }
-
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 0.75rem 15rem;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      max-width: 700px;
+      padding: 0.6rem 1.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: rgba(13, 13, 13, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid var(--border);
+      gap: 0;
+      z-index: 1000;
+      border-radius: 100px;
+      background: linear-gradient(135deg,
+        rgba(246,247,255,0.10) 0%,
+        rgba(167,139,250,0.08) 50%,
+        rgba(38,24,124,0.15) 100%);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(246,247,255,0.22);
+      box-shadow:
+        0 4px 24px rgba(38,24,124,0.3),
+        0 1px 0 rgba(246,247,255,0.15) inset,
+        0 -1px 0 rgba(38,24,124,0.2) inset;
+      transition: box-shadow 0.4s ease, background 0.4s ease;
+      white-space: nowrap;
     }
-
+    nav:hover {
+      box-shadow:
+        0 8px 40px rgba(38,24,124,0.55),
+        0 1px 0 rgba(246,247,255,0.2) inset,
+        0 -1px 0 rgba(38,24,124,0.3) inset;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-right: 2rem;
+      flex-shrink: 0;
+    }
+    .nav-logo img { height: 32px; width: auto; border-radius: 50%; }
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--accent-dim);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      border-radius: 100px;
+      transition: all 0.25s;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+      background: rgba(246,247,255,0.1);
+    }
     .hamburger {
       display: none;
       background: none;
       border: none;
-      color: var(--gold);
-      font-size: 1.8rem;
+      color: var(--accent);
+      font-size: 1.6rem;
       cursor: pointer;
+      margin-left: auto;
     }
 
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-      text-decoration: none;
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 1.5rem 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse at top, rgba(111,94,219,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--purple);
+      opacity: 0.5;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-
-    /* HERO */
-    .hero {
+    .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      padding-top: 120px;
-      text-align: center;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--purple);
     }
 
-    /* PRIVACY */
-    .privacy {
-      max-width: 650px;
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-sub strong {
+      color: var(--accent-dim);
+      font-weight: 400;
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      border: 0.5px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+    }
+    .hero-meta::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+      opacity: 0.7;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 680px;
+      margin: 0 auto 0;
+      padding: 0 1.5rem;
+    }
+    .divider-line {
+      flex: 1;
+      height: 0.5px;
+      background: linear-gradient(to right, transparent, rgba(111,94,219,0.4), transparent);
+    }
+    .divider-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--purple);
+      opacity: 0.5;
+    }
+
+    /* ── CONTENT WRAPPER ── */
+    .content {
+      max-width: 680px;
       margin: 0 auto;
-      text-align: left;
-      padding: 0 1rem;
+      padding: 3rem 1.5rem 5rem;
     }
 
-    .privacy p {
+    /* ── POLICY BLOCK ── */
+    .policy-block {
+      margin-bottom: 3rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .policy-block.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .block-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .block-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--purple);
+      opacity: 0.3;
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2rem;
+    }
+
+    .block-title-wrap { flex: 1; padding-top: 0.2rem; }
+
+    .block-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.3rem;
+    }
+
+    .block-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .block-body {
+      padding-left: 3.5rem;
+    }
+
+    .block-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      max-width: 100%;
+      text-align: left;
+      margin: 0 0 0.8rem 0;
+    }
+    .block-body p strong {
+      color: var(--accent-dim);
+      font-weight: 400;
+    }
+
+    /* ── SUB-SECTION ── */
+    .sub-section {
+      margin: 1.2rem 0;
+    }
+    .sub-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      opacity: 0.7;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── LIST ── */
+    .policy-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 0.8rem;
+    }
+    .policy-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+    .policy-list li::before {
+      content: '—';
+      color: var(--purple);
+      opacity: 0.5;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ── INLINE HIGHLIGHT ── */
+    .hl {
+      color: var(--accent-dim);
+      font-weight: 400;
+    }
+    .hl-purple {
+      color: var(--purple);
+      font-weight: 400;
+    }
+
+    /* ── SEPARATOR ── */
+    .sep {
+      height: 0.5px;
+      background: linear-gradient(to right, transparent, rgba(111,94,219,0.25), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* ── NOTICE CARD ── */
+    .notice-card {
+      background: rgba(111,94,219,0.06);
+      border: 0.5px solid rgba(111,94,219,0.2);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin-top: 1rem;
+    }
+    .notice-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.8;
       max-width: 100%;
       text-align: left;
       margin: 0;
     }
 
-    .privacy ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-    }
-
-    .privacy li::marker { color: white; }
-
-    .privacy li { color: white; }
-
-    hr {
-      border: none;
-      border-top: 1px solid #b8973a;
-      width: 100%;
-      max-width: 650px;
-      margin: 1rem auto;
-    }
-
-    /* CONTACT */
+    /* ── FOOTER CONTACT ── */
     .contact-section {
-      background-color: #0D0D0D;
-      border: solid 0.5px;
-      border-color: #B8973a;
-      border-radius: 12px;
+      background: linear-gradient(135deg, var(--dark-2) 0%, var(--primary-dark) 100%);
+      border: 0.5px solid rgba(167,139,250,0.25);
+      border-radius: 20px;
       padding: 60px 40px;
-      color: #B8973A;
-      max-width: 1200px;
+      color: var(--accent);
+      max-width: 1100px;
       margin: 40px auto;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(38,24,124,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
     .contact-section h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
       font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
-
+    .contact-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
     .links {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin-bottom: 40px;
-      width: 100%;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
     }
-
     .links a {
-      color: #7A7570;
-      text-decoration: underline;
-      font-size: 18px;
+      color: var(--accent-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      border: 0.5px solid var(--accent-border);
+      border-radius: 100px;
+      transition: all 0.3s;
     }
-
+    .links a:hover {
+      color: var(--accent);
+      border-color: rgba(246,247,255,0.4);
+      background: rgba(246,247,255,0.07);
+    }
     .bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      padding-top: 20px;
+      gap: 1rem;
+      padding-top: 1.5rem;
       border-top: 0.5px solid var(--border);
     }
-
     .bottom p {
-      font-size: 14px;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      padding: 0;
-      margin: 0 !important;
-      text-align: left !important;
-      max-width: none !important;
+      max-width: 100%;
+      text-align: left;
+      margin: 0;
     }
-
-    .policies {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
+    .policies { display: flex; gap: 1rem; align-items: center; }
     .policies a {
-      color: #7A7570;
-      text-decoration: underline;
-      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
     }
+    .policies a:hover { color: var(--accent); }
+    .policies span { color: var(--border); }
 
-    /* MOBILE */
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-
+      nav {
+        top: 1rem;
+        padding: 0.6rem 1rem;
+        max-width: calc(100vw - 2rem);
+      }
       .hamburger { display: block; }
-
       .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(13, 13, 13, 0.95);
-        padding: 1rem 2rem;
-        gap: 1rem;
+        top: 60px; left: 50%;
+        transform: translateX(-50%);
+        width: 220px;
+        background: rgba(14,11,38,0.97);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1rem;
+        gap: 0.25rem;
       }
-
       .nav-links.open { display: flex; }
-
-      .privacy { width: 100%; }
+      .block-body { padding-left: 0; }
+      .block-number { display: none; }
+      .contact-section { padding: 40px 24px; margin: 20px 16px; }
     }
   </style>
 </head>
-
 <body>
 
+  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <img src="cropped logo.png" alt="Ahmed Shehata" style="height: 40px; width: auto;">
+      <img src="cropped logo.png" alt="Ahmed Shehata">
       Ahmed Shehata
     </a>
     <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="Professional.html">Services</a></li>
+      <li><a href="Services.html">Services</a></li>
       <li><a href="#projects">Projects</a></li>
     </ul>
   </nav>
 
+  <!-- HERO -->
   <header class="hero">
-    <h1>Privacy Policy</h1>
-    <p>
-      This Privacy Policy explains how we collect, use, and protect your information when you visit
-      <span>Ahmed Shehata.com</span>
+    <div class="hero-eyebrow">Legal Document</div>
+    <h1>Your <em>Privacy</em><br>Matters Here</h1>
+    <p class="hero-sub">
+      A transparent look at how <strong>AhmedShehata.com</strong> handles
+      your data — what we collect, why we collect it, and how it's kept safe.
     </p>
-    <hr>
+    <div class="hero-meta">Last updated · 2025</div>
   </header>
 
-  <div class="privacy">
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
 
-    <h3>1. Information We Collect</h3>
-    <h4>A) Information Collected Automatically</h4>
-    <p>When you browse the website, certain data is collected automatically, such as:</p>
-    <ul>
-      <li>Device type and browser</li>
-      <li>Approximate location (country/city)</li>
-      <li>Pages you visit and time spent</li>
-      <li>Traffic source (search, social media, direct)</li>
-    </ul>
-    <p>This happens through analytics tools like <span>Google Analytics.</span></p>
+  <!-- CONTENT -->
+  <div class="content">
 
-    <h4>B) Information You Provide Voluntarily</h4>
-    <p>If you fill out a contact form or send a message, we may collect:</p>
-    <p>You may :</p>
-    <ul>
-      <li>Your Name</li>
-      <li>Email Address</li>
-      <li>Any information you choose to include in your message</li>
-    </ul>
-    <hr>
+    <!-- 01 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">01</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Data Collection</div>
+          <div class="block-subtitle">What Information We Gather</div>
+        </div>
+      </div>
+      <div class="block-body">
 
-    <h3>2. How We Use Your Information</h3>
-    <p>We use the collected data to:</p>
-    <ul>
-      <li>Improve website content and user experience</li>
-      <li>Respond to your messages and inquiries</li>
-      <li>Analyze traffic and performance</li>
-      <li>Maintain website security</li>
-    </ul>
-    <p>We <span>don't</span> sell or share your personal information with third parties for marketing.</p>
-    <hr>
+        <div class="sub-section">
+          <div class="sub-label">A — Passive Collection</div>
+          <p>Certain technical data is gathered automatically as you navigate the site — no action needed on your end. This includes:</p>
+          <ul class="policy-list">
+            <li>Your device type and browser version</li>
+            <li>General location data (country or city level)</li>
+            <li>Pages viewed and time spent on each</li>
+            <li>How you arrived — via search, social media, or direct link</li>
+          </ul>
+          <p>This is handled through <span class="hl">Google Analytics</span>, which processes data anonymously.</p>
+        </div>
 
-    <h3>3. Cookies</h3>
-    <h4>This Website Uses Cookies To:</h4>
-    <ul>
-      <li>Improve functionality</li>
-      <li>Track basic analytics (anonymous)</li>
-      <li>Remember your preferences</li>
-    </ul>
-    <hr>
+        <div class="sep"></div>
 
-    <h3>4. Third-Party Services</h3>
-    <p>We may use trusted third-party services such as:</p>
-    <ul>
-      <li>Google Analytics</li>
-      <li>Google AdSense (for advertising)</li>
-      <li>Email or contact form tools</li>
-    </ul>
-    <p>These services may collect data according to their own privacy policies.</p>
-    <hr>
+        <div class="sub-section">
+          <div class="sub-label">B — Active Collection</div>
+          <p>When you reach out through a contact form, we may receive:</p>
+          <ul class="policy-list">
+            <li>Your full name</li>
+            <li>Your email address</li>
+            <li>Any details you choose to share in your message</li>
+          </ul>
+          <p>Sharing this information is entirely your choice.</p>
+        </div>
 
-    <h3>5. Data Protection</h3>
-    <p>We take reasonable technical and organizational measures to keep your data secure.</p>
-    <p>However, no method of internet transmission is 100% guaranteed.</p>
-    <hr>
+      </div>
+    </div>
 
-    <h3>6. Your Rights</h3>
-    <ul>
-      <li>Request to know what data we collect</li>
-      <li>Ask us to delete information you have provided</li>
-      <li>Opt out of analytics cookies through your browser</li>
-    </ul>
-    <p>To request changes, contact us using the information on the Contact page.</p>
-    <hr>
+    <div class="sep"></div>
 
-    <h3>7. Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time.</p>
-    <p>The "Last Updated" date will always reflect the latest version.</p>
-    <hr>
+    <!-- 02 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">02</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Data Usage</div>
+          <div class="block-subtitle">How We Put It to Use</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>The information collected serves a few clear purposes:</p>
+        <ul class="policy-list">
+          <li>Enhancing the website's content and overall experience</li>
+          <li>Replying to your messages and questions</li>
+          <li>Understanding site traffic patterns and performance</li>
+          <li>Keeping the website secure and stable</li>
+        </ul>
+        <div class="notice-card">
+          <p>We <span class="hl-purple">do not</span> sell, rent, or trade your personal data with third parties for any commercial or marketing purpose — ever.</p>
+        </div>
+      </div>
+    </div>
 
-    <h3>8. Contact</h3>
-    <p>If you have any questions about this Privacy Policy, you can reach us through the Contact page on the website.</p>
+    <div class="sep"></div>
+
+    <!-- 03 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">03</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Cookies</div>
+          <div class="block-subtitle">Small Files, Clear Purpose</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>This site uses cookies — lightweight files stored in your browser — to:</p>
+        <ul class="policy-list">
+          <li>Keep certain features working smoothly</li>
+          <li>Gather anonymous traffic analytics</li>
+          <li>Remember your browsing preferences</li>
+        </ul>
+        <p>You can manage or disable cookies at any time through your browser settings.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- 04 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">04</div>
+        <div class="block-title-wrap">
+          <div class="block-title">External Services</div>
+          <div class="block-subtitle">Third-Party Integrations</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>To deliver a better experience, we rely on select external tools:</p>
+        <ul class="policy-list">
+          <li>Google Analytics — website traffic insights</li>
+          <li>Google AdSense — contextual advertising</li>
+          <li>Contact & email delivery services</li>
+        </ul>
+        <p>Each of these services operates under its own privacy policy, which governs how they handle any data they receive.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- 05 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">05</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Security</div>
+          <div class="block-subtitle">Keeping Your Data Safe</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>We apply reasonable technical and organizational safeguards to protect any information held on this site.</p>
+        <div class="notice-card">
+          <p>No system connected to the internet can offer a total guarantee of security. While we do our best, please be mindful when sharing sensitive information online.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- 06 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">06</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Your Rights</div>
+          <div class="block-subtitle">You're Always in Control</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>You hold the following rights regarding your data:</p>
+        <ul class="policy-list">
+          <li>Request a summary of what information we hold about you</li>
+          <li>Ask us to remove any details you've submitted</li>
+          <li>Opt out of analytics tracking via your browser settings</li>
+        </ul>
+        <p>To exercise any of these rights, head to the <span class="hl">Contact</span> page and send us a message.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- 07 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">07</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Policy Updates</div>
+          <div class="block-subtitle">When Things Change</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>This policy may be revised from time to time to reflect changes in how we operate or to meet legal requirements. Whenever that happens, the "Last Updated" date at the top of this page will be refreshed accordingly.</p>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- 08 -->
+    <div class="policy-block">
+      <div class="block-header">
+        <div class="block-number">08</div>
+        <div class="block-title-wrap">
+          <div class="block-title">Questions?</div>
+          <div class="block-subtitle">We're Happy to Clarify</div>
+        </div>
+      </div>
+      <div class="block-body">
+        <p>If anything in this policy is unclear, or if you'd simply like more information about how your data is handled, please don't hesitate to reach out through the <span class="hl">Contact</span> page.</p>
+      </div>
+    </div>
 
   </div>
 
-  <!-- CONTACT -->
+  <!-- CONTACT FOOTER -->
   <div class="contact-section">
     <h2>Get In Touch</h2>
     <div class="links">
@@ -393,6 +722,18 @@
     function toggleMenu() {
       document.getElementById('nav-links').classList.toggle('open');
     }
+
+    // Scroll-triggered fade in
+    const blocks = document.querySelectorAll('.policy-block');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    blocks.forEach(b => observer.observe(b));
   </script>
 
 </body>
