@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQWW6D2TC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,6 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ahmed Shehata — Web Developer</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -539,8 +540,9 @@
 
   <!-- NAVBAR -->
   <nav>
-    <a href="#" class="nav-logo">
-      <img src="cropped logo.png" alt="AS">
+      <a href="#" class="nav-logo">
+      <img src="favicon w.png" alt="Ahmed Shehata">
+
       Ahmed Shehata
     </a>
     <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
