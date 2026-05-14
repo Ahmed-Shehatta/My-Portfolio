@@ -5,30 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Ahmed Shehata</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
-    <link rel="stylesheet" href="wow.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wow.css">
   <style>
-    *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --primary:       #26187c;
       --primary-light: #3a2a9e;
       --primary-dark:  #1a1057;
-      --primary-glow:  rgba(38, 24, 124, 0.35);
       --accent:        #f6f7ff;
       --accent-dim:    rgba(246, 247, 255, 0.55);
       --accent-faint:  rgba(246, 247, 255, 0.12);
       --accent-border: rgba(246, 247, 255, 0.18);
       --dark:          #08061a;
       --dark-2:        #0e0b26;
-      --dark-3:        #150f30;
       --text:          #f6f7ff;
       --text-muted:    rgba(246, 247, 255, 0.45);
       --border:        rgba(246, 247, 255, 0.12);
       --gold:          #a78bfa;
-      --gold-light:    #c4b5fd;
     }
 
     html { scroll-behavior: smooth; }
@@ -41,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -52,80 +47,122 @@
       opacity: 0.4;
     }
 
-    /* NAV */
+    /* ══════════════════════════════
+       NAV — تعريف واحد بس
+    ══════════════════════════════ */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 0.75rem 15rem;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: rgba(13, 13, 13, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid var(--border);
+      width: auto;
+      max-width: 700px;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      background: linear-gradient(
+        135deg,
+        rgba(246, 247, 255, 0.10) 0%,
+        rgba(167, 139, 250, 0.08) 50%,
+        rgba(38, 24, 124, 0.15) 100%
+      );
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(246, 247, 255, 0.22);
+      box-shadow:
+        0 4px 24px rgba(38, 24, 124, 0.3),
+        0 1px 0 rgba(246, 247, 255, 0.15) inset,
+        0 -1px 0 rgba(38, 24, 124, 0.2) inset;
+      transition: box-shadow 0.4s ease;
     }
 
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--gold);
-      font-size: 1.8rem;
-      cursor: pointer;
+    nav:hover {
+      box-shadow:
+        0 8px 40px rgba(38, 24, 124, 0.55),
+        0 1px 0 rgba(246, 247, 255, 0.2) inset,
+        0 -1px 0 rgba(38, 24, 124, 0.3) inset;
     }
 
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.05em;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+      margin-right: 2rem;
+      flex-shrink: 0;
     }
 
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    /* ── Links: على desktop flex عادي ── */
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 0.25rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
-      color: var(--text-muted);
+      color: var(--accent-dim);
       text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: color 0.3s;
+      padding: 0.4rem 0.85rem;
+      border-radius: 100px;
+      transition: all 0.25s;
     }
 
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover {
+      color: var(--accent);
+      background: rgba(246, 247, 255, 0.1);
+    }
 
-    /* ABOUT */
+    /* ── Hamburger: مخفي على desktop ── */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════
+       ABOUT CARD
+    ══════════════════════════════ */
     .abtcon {
       max-width: 800px;
-      margin: 12rem auto 4rem;
+      margin: 10rem auto 4rem;
       padding: 4rem;
-      padding-top: 8rem; /* مساحة للصورة */
+      padding-top: 8rem;
       background-color: #0F0C28;
       border: 0.5px solid var(--border);
       border-radius: 20px;
-      position: relative; /* مهم عشان الصورة تتحسب منه */
+      position: relative;
     }
 
-    /* الصورة الدائرية */
     .profile-img-wrapper {
       position: absolute;
       top: -90px;
       left: 50%;
       transform: translateX(-50%);
-      width: 220px;
-      height: 220px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       border: 2.5px solid #6253c4;
       overflow: hidden;
@@ -156,9 +193,11 @@
       text-align: center;
     }
 
-   /* ── CONTACT ── */
+    /* ══════════════════════════════
+       CONTACT
+    ══════════════════════════════ */
     .contact-section {
-      background: linear-gradient(135deg, var(--dark-2) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, var(--dark-2) 0%, #1a1057 100%);
       border: 0.5px solid rgba(167,139,250,0.25);
       border-radius: 20px;
       padding: 60px 40px;
@@ -169,6 +208,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .contact-section::before {
       content: '';
       position: absolute;
@@ -183,7 +223,6 @@
       margin-bottom: 0.5rem;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
-      color: var(--accent);
     }
 
     .contact-sub {
@@ -211,6 +250,7 @@
       border-radius: 100px;
       transition: all 0.3s;
     }
+
     .links a:hover {
       color: var(--accent);
       border-color: rgba(246,247,255,0.4);
@@ -226,169 +266,107 @@
       padding-top: 1.5rem;
       border-top: 0.5px solid var(--border);
     }
+
     .bottom p { font-size: 0.8rem; color: var(--text-muted); }
 
     .policies { display: flex; gap: 1rem; align-items: center; }
+
     .policies a {
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.8rem;
       transition: color 0.2s;
     }
+
     .policies a:hover { color: var(--accent); }
     .policies span { color: var(--border); }
 
-    /* ── FADE IN ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: none; }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: none; }
-    }
-
-    /* MOBILE */
+    /* ══════════════════════════════
+       MOBILE — تعريف واحد بس
+    ══════════════════════════════ */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
 
-      .hamburger { display: block; }
+      /* الـ nav يبقى شريط full-width */
+      nav {
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: none;          /* إلغاء translateX(-50%) */
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        padding: 0.75rem 1.25rem;
+        justify-content: space-between;
+        flex-wrap: wrap;          /* عشان لما يفتح الـ menu يتمدد */
+        white-space: normal;
+      }
 
+      /* الـ hamburger يظهر */
+      .hamburger {
+        display: block;
+      }
+
+      /* الـ links مخفية افتراضياً */
       .nav-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(13, 13, 13, 0.95);
-        padding: 1rem 2rem;
-        gap: 1rem;
+        width: 100%;              /* full width تحت الـ nav bar */
+        gap: 0;
+        margin-top: 0.5rem;
+        border-top: 0.5px solid var(--border);
+        padding-top: 0.5rem;
       }
 
-      .nav-links.open { display: flex; }
+      /* لما يتفتح */
+      .nav-links.open {
+        display: flex;
+      }
 
-      .abtcon { margin-top: 7rem; }
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      /* الـ about card */
+      .abtcon {
+        margin: 6rem 1rem 2rem;
+        padding: 3rem 1.25rem 2rem;
+      }
+
+      .profile-img-wrapper {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+      }
+
+      /* الـ contact */
+      .contact-section {
+        padding: 40px 24px;
+        margin: 20px 16px;
+      }
+
+      .bottom {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
-
-
-
-    /* ── LIQUID GLASS NAVBAR ── */
-    nav {
-      position: fixed;
-      top: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
-      max-width: 700px;
-      padding: 0.6rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0;
-      z-index: 1000;
-      border-radius: 100px;
-      /* Liquid glass effect */
-      background: linear-gradient(
-        135deg,
-        rgba(246, 247, 255, 0.10) 0%,
-        rgba(167, 139, 250, 0.08) 50%,
-        rgba(38, 24, 124, 0.15) 100%
-      );
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border: 1px solid rgba(246, 247, 255, 0.22);
-      box-shadow:
-        0 4px 24px rgba(38, 24, 124, 0.3),
-        0 1px 0 rgba(246, 247, 255, 0.15) inset,
-        0 -1px 0 rgba(38, 24, 124, 0.2) inset;
-      transition: box-shadow 0.4s ease, background 0.4s ease;
-      white-space: nowrap;
-    }
-
-    nav:hover {
-      box-shadow:
-        0 8px 40px rgba(38, 24, 124, 0.55),
-        0 1px 0 rgba(246, 247, 255, 0.2) inset,
-        0 -1px 0 rgba(38, 24, 124, 0.3) inset;
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-right: 2rem;
-      flex-shrink: 0;
-    }
-
-    .nav-logo img { height: 32px; width: auto; border-radius: 50%; }
-
-    .nav-links {
-      display: flex;
-      gap: 0.25rem;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--accent-dim);
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.85rem;
-      border-radius: 100px;
-      transition: all 0.25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-      background: rgba(246, 247, 255, 0.1);
-    }
-
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--accent);
-      font-size: 1.6rem;
-      cursor: pointer;
-      margin-left: auto;
-    }
-
-    /* ── AMBIENT ORBS ── */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(80px);
-    }
-    .orb-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(38,24,124,0.5) 0%, transparent 70%);
-      top: -100px; right: -100px;
-    }
-    .orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%);
-      bottom: 100px; left: -100px;
-    }
   </style>
 </head>
 
 <body>
 
   <nav>
-    <a href="#" class="nav-logo">
-      <img src="cropped logo.png" alt="Ahmed Shehata" style="height: 40px; width: auto;">
+    <a href="index.html" class="nav-logo">
+      <img src="cropped logo.png" alt="Ahmed Shehata">
       Ahmed Shehata
     </a>
     <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
@@ -401,21 +379,17 @@
   </nav>
 
   <div class="abtcon">
-
-    <!-- الصورة الدائرية فوق العنوان -->
     <div class="profile-img-wrapper">
       <img src="me1.webp" alt="Ahmed Shehata">
-      <!-- غير your-photo.jpg لاسم صورتك الحقيقي -->
     </div>
-
     <h2 class="who">Who Is Ahmed</h2>
     <p class="wh">
-      I'm a WordPress Developer focused on building clean, functional websites that help businesses grow online. I specialize in WordPress, Elementor, and WooCommerce — covering everything from business portfolios to full e-commerce stores.
+      I'm a WordPress Developer focused on building clean, functional websites that help businesses grow online.
+      I specialize in WordPress, Elementor, and WooCommerce — covering everything from business portfolios to full e-commerce stores.
       I'm self-taught and results-driven, with a hands-on approach to every project — from initial design to final deployment.
     </p>
   </div>
 
-  <!-- CONTACT -->
   <div class="contact-section">
     <h2>Get In Touch</h2>
     <p class="contact-sub">Let's build something remarkable together.</p>
@@ -433,7 +407,6 @@
       </div>
     </div>
   </div>
-
 
   <script>
     function toggleMenu() {
