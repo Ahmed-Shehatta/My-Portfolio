@@ -7,12 +7,11 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-WSQWW6D2TC');
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Shehata — Web Developer</title>
+  <title>Ahmed Shehata — WordPress Developer for Businesses</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -76,8 +75,9 @@
       transition: transform 0.2s ease;
       z-index: 9999;
       backdrop-filter: blur(8px);
-      font-weight: 500;}
-      .cursor-preview.active { transform: translate(-50%, -50%) scale(1); }
+      font-weight: 500;
+    }
+    .cursor-preview.active { transform: translate(-50%, -50%) scale(1); }
 
     /* ── NAVBAR ── */
     nav {
@@ -161,6 +161,7 @@
       overflow: hidden;
       text-align: center;
     }
+
     .hero-tag {
       font-size: 0.7rem;
       letter-spacing: 0.25em;
@@ -174,7 +175,15 @@
       opacity: 0;
       animation: fadeUp 0.8s 0.2s forwards;
     }
-    .hero-tag::before, .hero-tag::after { content: ''; display: inline-block; width: 28px; height: 0.5px; background: var(--gold); opacity: 0.6; }
+    .hero-tag::before, .hero-tag::after {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 0.5px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.5rem, 9vw, 8rem);
@@ -186,50 +195,142 @@
       animation: fadeUp 0.9s 0.35s forwards;
     }
     .hero h1 span { color: var(--gold); font-style: italic; }
+
+    /* ── NEW: Hero Niche Badge ── */
+    .hero-niche {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem auto 0;
+      padding: 0.45rem 1.1rem;
+      border: 0.5px solid rgba(167,139,250,0.3);
+      border-radius: 100px;
+      background: rgba(167,139,250,0.07);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.45s forwards;
+    }
+    .hero-niche-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    /* ── NEW: Hero Sub improved ── */
     .hero-sub {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
-      margin: 1.75rem auto 2.5rem;
-      max-width: 420px;
+      margin: 1.5rem auto 0;
+      max-width: 480px;
       line-height: 1.75;
       opacity: 0;
-      animation: fadeUp 0.9s 0.5s forwards;
+      animation: fadeUp 0.9s 0.55s forwards;
     }
+    .hero-sub strong {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    /* ── NEW: Hero Proof Strip ── */
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.75rem auto 0;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.65s forwards;
+    }
+    .hero-proof-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .hero-proof-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-proof-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hero-proof-divider {
+      width: 0.5px;
+      height: 32px;
+      background: var(--border);
+    }
+
+    /* ── CTA ── */
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
+      margin-top: 2.25rem;
       opacity: 0;
-      animation: fadeUp 0.9s 0.65s forwards;
+      animation: fadeUp 0.9s 0.75s forwards;
     }
     .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.8rem 1.8rem;
+      padding: 0.9rem 2rem;
       background: var(--primary);
       border: 1px solid var(--primary-light);
       color: var(--accent);
       text-decoration: none;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       border-radius: 100px;
       transition: all 0.3s;
       box-shadow: 0 0 20px var(--primary-glow);
     }
-    .hero-cta:hover { background: var(--primary-light); box-shadow: 0 0 40px rgba(38,24,124,0.6); transform: translateY(-2px); }
+    .hero-cta:hover {
+      background: var(--primary-light);
+      box-shadow: 0 0 40px rgba(38,24,124,0.6);
+      transform: translateY(-2px);
+    }
     .hero-cta::after { content: '→'; transition: transform 0.3s; }
     .hero-cta:hover::after { transform: translateX(4px); }
+
     .btn-whatsapp {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.8rem 1.8rem; background: transparent; color: #4ade80;
-      text-decoration: none; font-size: 0.78rem; letter-spacing: 0.12em;
-      text-transform: uppercase; border-radius: 100px;
-      border: 1px solid rgba(74,222,128,0.35); transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      background: transparent;
+      color: #4ade80;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      border: 1px solid rgba(74,222,128,0.35);
+      transition: all 0.3s;
     }
-    .btn-whatsapp:hover { background: rgba(74,222,128,0.12); border-color: rgba(74,222,128,0.6); }
+    .btn-whatsapp:hover {
+      background: rgba(74,222,128,0.12);
+      border-color: rgba(74,222,128,0.6);
+      transform: translateY(-2px);
+    }
+
+     .btn-whatsapp:hover { background: rgba(74,222,128,0.12); border-color: rgba(74,222,128,0.6); }
     .btn-instagram {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.8rem 1.8rem; background: transparent; color: #f472b6;
@@ -237,7 +338,9 @@
       text-transform: uppercase; border-radius: 100px;
       border: 1px solid rgba(244,114,182,0.35); transition: all 0.3s;
     }
-    .btn-instagram:hover { background: rgba(244,114,182,0.1); border-color: rgba(244,114,182,0.6); }
+    .btn-instagram:hover { background: rgba(244,114,182,0.1); border-color: rgba(244,114,182,0.6); 
+    transform: translateY(-2px);}
+
 
     /* ── SECTIONS ── */
     section { padding: 6rem 3rem; border-top: 0.5px solid var(--border); position: relative; }
@@ -250,7 +353,7 @@
       text-align: center;
     }
 
-    /* ── ABOUT SNIPPET (NEW) ── */
+    /* ── ABOUT SNIPPET ── */
     .about-snippet {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -259,9 +362,7 @@
       max-width: 900px;
       margin: 0 auto;
     }
-    .about-img-wrap {
-      position: relative;
-    }
+    .about-img-wrap { position: relative; }
     .about-img-wrap img {
       width: 100%;
       max-width: 320px;
@@ -284,7 +385,6 @@
       pointer-events: none;
       z-index: 1;
     }
-    .about-text {}
     .about-text h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -316,10 +416,8 @@
     .about-link:hover { color: var(--gold-light); border-color: var(--gold-light); gap: 0.75rem; }
     .about-link::after { content: '→'; }
 
-    /* ── STATS (NEW) ── */
-    .stats-section {
-      background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
-    }
+    /* ── STATS ── */
+    .stats-section { background: linear-gradient(135deg, var(--dark-2), var(--dark-3)); }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -358,70 +456,8 @@
       line-height: 1;
       margin-bottom: 0.5rem;
     }
-    .stat-number sup {
-      font-size: 0.45em;
-      vertical-align: super;
-      opacity: 0.7;
-    }
-    .stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    /* ── TESTIMONIAL (NEW) ── */
-    .testimonial-wrap {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-    .testimonial-quote-mark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 6rem;
-      color: rgba(167,139,250,0.15);
-      line-height: 0.5;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-    .testimonial-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.6;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-    .testimonial-divider {
-      width: 40px;
-      height: 0.5px;
-      background: var(--gold);
-      margin: 0 auto 1.5rem;
-      opacity: 0.5;
-    }
-    .testimonial-author {
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
-    .testimonial-role {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-    .testimonial-placeholder {
-      margin-top: 2rem;
-      font-size: 0.75rem;
-      color: rgba(167,139,250,0.3);
-      letter-spacing: 0.08em;
-      border: 0.5px dashed rgba(167,139,250,0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 100px;
-      display: inline-block;
-    }
+    .stat-number sup { font-size: 0.45em; vertical-align: super; opacity: 0.7; }
+    .stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
 
     /* ── SERVICES ── */
     .services-grid {
@@ -488,7 +524,8 @@
       overflow: hidden;
     }
     .contact-section::before {
-      content: ''; position: absolute;
+      content: '';
+      position: absolute;
       top: -100px; right: -100px;
       width: 400px; height: 400px;
       background: radial-gradient(circle, rgba(38,24,124,0.4) 0%, transparent 70%);
@@ -521,18 +558,12 @@
       section { padding: 4rem 1.5rem; }
       .contact-section { padding: 40px 24px; margin: 20px 16px; }
       .hero-actions { flex-direction: column; align-items: center; }
-
-      /* about responsive */
+      .hero-proof { gap: 1rem; }
       .about-snippet { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
       .about-img-wrap { display: flex; justify-content: center; }
       .about-img-wrap img { max-width: 240px; }
       .about-link { justify-content: center; }
-
-      /* stats responsive */
       .stats-grid { grid-template-columns: 1fr; max-width: 320px; }
-
-      /* testimonial responsive */
-      .testimonial-text { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -540,9 +571,8 @@
 
   <!-- NAVBAR -->
   <nav>
-      <a href="#" class="nav-logo">
+    <a href="#" class="nav-logo">
       <img src="favicon w.png" alt="Ahmed Shehata">
-
       Ahmed Shehata
     </a>
     <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
@@ -554,26 +584,63 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- ══════════════════════════════════════ -->
+  <!-- HERO — UPDATED                        -->
+  <!-- ══════════════════════════════════════ -->
   <section class="hero" id="home">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
+
+    <!-- Tag: specialisation -->
     <div class="hero-tag">WordPress Developer</div>
+
+    <!-- Name -->
     <h1>Ahmed<br><span>Shehata</span></h1>
-    <p class="hero-sub">Professional websites that drive results — built on WordPress, powered by precision.</p>
+
+    <!-- NEW: Niche badge — specific target market -->
+    <div class="hero-niche">
+      <span class="hero-niche-dot"></span>
+      Restaurants · Cafés · Salons · Clinics · Retail
+    </div>
+
+    <!-- NEW: Sub — value-focused, not poetry -->
+    <p class="hero-sub">
+      I build <strong>professional WordPress websites</strong> for small businesses that want to look credible online and attract more customers — fast.
+    </p>
+
+    <!-- NEW: Proof strip -->
+    <div class="hero-proof">
+      <div class="hero-proof-item">
+        <span class="hero-proof-num">5+</span>
+        <span class="hero-proof-label">Projects</span>
+      </div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">
+        <span class="hero-proof-num">100%</span>
+        <span class="hero-proof-label">Responsive</span>
+      </div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">
+        <span class="hero-proof-num">AR / EN</span>
+        <span class="hero-proof-label">Bilingual</span>
+      </div>
+    </div>
+
+    <!-- CTA: Primary only + WhatsApp secondary -->
     <div class="hero-actions">
       <a href="#projects" class="hero-cta">View My Work</a>
-      <a class="btn-whatsapp" href="https://wa.me/201221438667" target="_blank">WhatsApp</a>
-      <a class="btn-instagram" href="https://www.instagram.com/ahmed_shehattta/" target="_blank">
+      <a class="btn-whatsapp" href="https://wa.me/201221438667" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+        <a class="btn-instagram" href="https://www.instagram.com/ahmed_shehattta/" target="_blank">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         Instagram
       </a>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════ -->
-  <!-- ABOUT SNIPPET (NEW)                   -->
-  <!-- ══════════════════════════════════════ -->
+  <!-- ABOUT SNIPPET -->
   <section id="about-snippet">
     <div class="section-label">About</div>
     <div class="about-snippet fade-in">
@@ -589,9 +656,7 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════ -->
-  <!-- STATS (NEW)                           -->
-  <!-- ══════════════════════════════════════ -->
+  <!-- STATS -->
   <section class="stats-section">
     <div class="section-label">By the numbers</div>
     <div class="stats-grid fade-in">
@@ -609,22 +674,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ══════════════════════════════════════ -->
-  <!-- TESTIMONIAL (NEW)                     -->
-  <!-- ══════════════════════════════════════ -->
-  <!-- <section id="testimonial">
-    <div class="section-label">Kind Words</div>
-    <div class="testimonial-wrap fade-in">
-      <span class="testimonial-quote-mark">"</span>
-      <p class="testimonial-text">Ahmed delivered exactly what we needed — a clean, fast site that actually converts visitors into customers. Professional from start to finish.</p>
-      <div class="testimonial-divider"></div>
-      <div class="testimonial-author">Client Name</div>
-      <div class="testimonial-role">Business Owner</div>
-       👇 DELETE THIS LINE once you add a real testimonial -->
-      <!-- <div class="testimonial-placeholder">← Replace with a real client review</div>
-    </div>
-  </section> -->  
 
   <!-- SERVICES -->
   <section id="services">
@@ -658,7 +707,7 @@
     <div class="section-label">Projects</div>
     <div class="projects-grid">
       <div class="project-card">
-        <a href="https://ahmed-shehatta.github.io/Noir-Brew/" target="_blank">
+        <a href="https://ahm3d67892-lang.github.io/Noir-Brew/" target="_blank">
           <img src="brew.png" alt="brew" class="project-img">
         </a>
         <div class="project-info">
@@ -667,7 +716,7 @@
         </div>
       </div>
       <div class="project-card">
-        <a href="https://ahmed-shehatta.github.io/Khalid-Al-Rashidi-Store/" target="_blank">
+        <a href="https://ahm3d67892-lang.github.io/Khalid-Al-Rashidi-Store/" target="_blank">
           <img src="Khalid-Al-Rashidi.png" alt="Khalid-Al-Rashidi" class="project-img">
         </a>
         <div class="project-info">
@@ -676,7 +725,7 @@
         </div>
       </div>
       <div class="project-card">
-        <a href="https://ahmed-shehatta.github.io/Innovate/" target="_blank">
+        <a href="https://ahm3d67892-lang.github.io/Innovate/" target="_blank">
           <img src="innovate.png" alt="Innovate" class="project-img">
         </a>
         <div class="project-info">
@@ -693,7 +742,7 @@
     <p class="contact-sub">Let's build something remarkable together.</p>
     <div class="links">
       <a href="https://wa.me/201221438667">WhatsApp</a>
-      <a href="https://www.instagram.com/ahmed_shehattta/">Instagram</a>
+      <a href="https://www.instagram.com/ahmed.2shehata/">Instagram</a>
       <a href="mailto:ahm3d.67892@gmail.com">Gmail</a>
     </div>
     <div class="bottom">
@@ -705,7 +754,8 @@
       </div>
     </div>
   </div>
- <!-- CURSOR -->
+
+  <!-- CURSOR -->
   <div class="cursor-preview" id="cursorPreview"><span>Live Preview</span></div>
 
   <script>
@@ -718,8 +768,9 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-       const cursor = document.getElementById("cursorPreview");
 
+    // Cursor preview on project cards
+    const cursor = document.getElementById("cursorPreview");
     document.querySelectorAll(".project-card").forEach(card => {
       card.addEventListener("mouseenter", () => cursor.classList.add("active"));
       card.addEventListener("mouseleave", () => cursor.classList.remove("active"));
