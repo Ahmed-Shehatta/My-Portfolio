@@ -15,8 +15,56 @@
   <title>About — Ahmed Shehata</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="wow.css">
-  <style>
+
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="favicon w.png" alt="Ahmed Shehata">
+      Ahmed Shehata
+    </a>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="Services.html">Services</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <div class="abtcon">
+    <div class="profile-img-wrapper">
+      <img src="1-1.webp" alt="Ahmed Shehata">
+    </div>
+    <h2 class="who">Who Is Ahmed</h2>
+    <p class="wh">
+      I'm a WordPress Developer focused on building clean, functional websites that help businesses grow online.
+      I specialize in WordPress, Elementor, and WooCommerce  covering everything from business portfolios to full e-commerce stores.
+      I'm self-taught and results-driven, with a hands-on approach to every project  from initial design to final deployment.
+    </p>
+  </div>
+
+  <div class="contact-section">
+    <h2>Get In Touch</h2>
+    <p class="contact-sub">Let's build something remarkable together.</p>
+    <div class="links">
+      <a href="https://wa.me/201221438667">WhatsApp</a>
+      <a href="https://www.instagram.com/ahmed.shehattta/">Instagram</a>
+      <a href="mailto:ahm3d.67892@gmail.com">Gmail</a>
+    </div>
+    <div class="bottom">
+      <p>© 2025. All rights reserved</p>
+      <div class="policies">
+        <a href="terms.html">Terms & Conditions</a>
+        <span>|</span>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+
+    <style>
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -57,7 +105,7 @@
     }
 
     /* ══════════════════════════════
-       NAV — identical to index.html
+       NAV  identical to index.html
     ══════════════════════════════ */
     nav {
       position: fixed;
@@ -124,7 +172,7 @@
       margin-left: auto;
     }
 
-    /* Mobile nav — identical to index.html */
+    /* Mobile nav  identical to index.html */
     @media (max-width: 768px) {
       nav { top: 1rem; padding: 0.6rem 1rem; max-width: calc(100vw - 2rem); }
       .hamburger { display: block; }
@@ -260,53 +308,6 @@
     .policies span { color: var(--border); }
 
   </style>
-</head>
-
-<body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <img src="favicon w.png" alt="Ahmed Shehata">
-      Ahmed Shehata
-    </a>
-    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="Services.html">Services</a></li>
-      <li><a href="index.html#projects">Projects</a></li>
-    </ul>
-  </nav>
-
-  <div class="abtcon">
-    <div class="profile-img-wrapper">
-      <img src="1-1.webp" alt="Ahmed Shehata">
-    </div>
-    <h2 class="who">Who Is Ahmed</h2>
-    <p class="wh">
-      I'm a WordPress Developer focused on building clean, functional websites that help businesses grow online.
-      I specialize in WordPress, Elementor, and WooCommerce — covering everything from business portfolios to full e-commerce stores.
-      I'm self-taught and results-driven, with a hands-on approach to every project — from initial design to final deployment.
-    </p>
-  </div>
-
-  <div class="contact-section">
-    <h2>Get In Touch</h2>
-    <p class="contact-sub">Let's build something remarkable together.</p>
-    <div class="links">
-      <a href="https://wa.me/201221438667">WhatsApp</a>
-      <a href="https://www.instagram.com/ahmed_shehattta/">Instagram</a>
-      <a href="mailto:ahm3d.67892@gmail.com">Gmail</a>
-    </div>
-    <div class="bottom">
-      <p>© 2025. All rights reserved</p>
-      <div class="policies">
-        <a href="terms.html">Terms & Conditions</a>
-        <span>|</span>
-        <a href="privacy.html">Privacy</a>
-      </div>
-    </div>
-  </div>
 
   <script>
     function toggleMenu() {
