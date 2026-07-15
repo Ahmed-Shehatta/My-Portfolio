@@ -172,10 +172,10 @@
         <p>Real Estate</p>
       </div>
     </div>
-         <div class="project-card" onclick="openGalleryModal(['Home page.png','Menu page.png','Private-Events page.png'], 'ارث العقاريه', 'Real Estate')">
+         <div class="project-card" onclick="openGalleryModal(['Home Page.png','Menu Page.png','Private-Events Page.png'], 'Ferra Restaurant', 'Restaurant')">
       <img src="Home Page.png" alt="Ferra" class="project-img">
       <div class="project-info">
-         <h3 class="ar">Ferra Restaurant</h3>
+         <h3>Ferra Restaurant</h3>
         <p>Restaurant</p>
       </div>
     </div>
@@ -210,7 +210,7 @@
     <div class="modal-gallery" id="galleryContainer"></div>
     <div class="modal-info">
       <div class="modal-text">
-        <h3 id="galleryTitle" class="ar"></h3>
+        <h3 id="galleryTitle"></h3>
         <p id="galleryCategory"></p>
       </div>
     </div>
@@ -1152,7 +1152,9 @@ body::selection{
       };
       container.appendChild(img);
     });
-    document.getElementById('galleryTitle').textContent = title;
+    const galleryTitleEl = document.getElementById('galleryTitle');
+    galleryTitleEl.textContent = title;
+    galleryTitleEl.classList.toggle('ar', /[\u0600-\u06FF]/.test(title));
     document.getElementById('galleryCategory').textContent = category;
     document.getElementById('galleryModal').classList.add('active');
     document.body.style.overflow = 'hidden';
