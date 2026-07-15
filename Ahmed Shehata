@@ -25,7 +25,7 @@
       Ahmed Shehata
     </a>
     <button class="hamburger" onclick="toggleMenu()" aria-expanded="false">
-  <span class="bar"></span>
+  <span class="bar"></span> 
   <span class="bar"></span>
   <span class="bar"></span>
 </button>
