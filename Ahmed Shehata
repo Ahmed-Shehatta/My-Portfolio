@@ -139,53 +139,65 @@
   <!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Projects</div>
-  <div class="projects-grid">
 
-    <div class="project-card" onclick="openModal('brew.png', 'Noir & Brew', 'Coffee Shop', 'https://ahmed-shehatta.github.io/Noir-Brew/')">
-      <img src="brew.png" alt="brew" class="project-img">
-      <div class="project-info">
-        <h3>Noir & Brew</h3>
-        <p>Coffee Shop</p>
+  <div class="projects-carousel-wrap">
+    <button class="carousel-arrow carousel-prev" onclick="scrollCarousel(-1)" aria-label="Previous project">&#8592;</button>
+
+    <div class="projects-grid" id="projectsCarousel">
+
+      <div class="project-card" onclick="openModal('brew.png', 'Noir & Brew', 'Coffee Shop', 'https://ahmed-shehatta.github.io/Noir-Brew/')">
+        <img src="brew.png" alt="brew" class="project-img">
+        <div class="project-info">
+          <h3>Noir & Brew</h3>
+          <p>Coffee Shop</p>
+        </div>
       </div>
+
+      <div class="project-card" onclick="openModal('Khalid-Al-Rashidi.png', 'Khalid Al-Rashidi Store', 'E-commerce Store', 'https://ahmed-shehatta.github.io/Khalid-Al-Rashidi-Store/')">
+        <img src="Khalid-Al-Rashidi.png" alt="Khalid-Al-Rashidi" class="project-img">
+        <div class="project-info">
+          <h3>Khalid Al-Rashidi Store</h3>
+          <p>E-commerce Store</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openModal('مستكن.png', 'Mostakan', 'Coffee Shop', 'https://ahmed-shehatta.github.io/Mostakan')">
+        <img src="مستكن.png" alt="Mostakan" class="project-img">
+        <div class="project-info">
+          <h3>Mostakan</h3>
+          <p>Coffee Shop</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openGalleryModal(['1.png','2.png','3.png'], 'ارث العقاريه', 'Real Estate')">
+        <img src="1.png" alt="ارث العقاريه" class="project-img">
+        <div class="project-info">
+           <h3 class="ar">Erth Real Estate</h3>
+          <p>Real Estate</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openGalleryModal(['Home Page.png','Menu Page.png','Private-Events Page.png'], 'Ferra Restaurant', 'Restaurant')">
+        <img src="Home Page.png" alt="Ferra" class="project-img">
+        <div class="project-info">
+           <h3>Ferra Restaurant</h3>
+          <p>Restaurant</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openGalleryModal(['home.png','about.png','services.png','contact.png'], 'Smile Care', 'Dental Clinic')">
+        <img src="home.png" alt="Smile Care" class="project-img">
+        <div class="project-info">
+           <h3>Smile Care</h3>
+          <p>Dental Clinic</p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="project-card" onclick="openModal('Khalid-Al-Rashidi.png', 'Khalid Al-Rashidi Store', 'E-commerce Store', 'https://ahmed-shehatta.github.io/Khalid-Al-Rashidi-Store/')">
-      <img src="Khalid-Al-Rashidi.png" alt="Khalid-Al-Rashidi" class="project-img">
-      <div class="project-info">
-        <h3>Khalid Al-Rashidi Store</h3>
-        <p>E-commerce Store</p>
-      </div>
-    </div>
-
-    <div class="project-card" onclick="openModal('مستكن.png', 'Mostakan', 'Coffee Shop', 'https://ahmed-shehatta.github.io/Mostakan')">
-      <img src="مستكن.png" alt="Mostakan" class="project-img">
-      <div class="project-info">
-        <h3>Mostakan</h3>
-        <p>Coffee Shop</p>
-      </div>
-    </div>
-
-        <div class="project-card" onclick="openGalleryModal(['1.png','2.png','3.png'], 'ارث العقاريه', 'Real Estate')">
-      <img src="1.png" alt="ارث العقاريه" class="project-img">
-      <div class="project-info">
-         <h3 class="ar">Erth Real Estate</h3>
-        <p>Real Estate</p>
-      </div>
-    </div>
-         <div class="project-card" onclick="openGalleryModal(['Home Page.png','Menu Page.png','Private-Events Page.png'], 'Ferra Restaurant', 'Restaurant')">
-      <img src="Home Page.png" alt="Ferra" class="project-img">
-      <div class="project-info">
-         <h3>Ferra Restaurant</h3>
-        <p>Restaurant</p>
-      </div>
-    </div>
-    
+    <button class="carousel-arrow carousel-next" onclick="scrollCarousel(1)" aria-label="Next project">&#8594;</button>
   </div>
-    
-   
-  
-    
-    
+
 </section>
 
 <!-- MODAL -->
@@ -809,16 +821,67 @@ body::selection{
     .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; color: var(--text); }
     .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
 
-    /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .project-card { border: 0.5px solid var(--border); background: var(--dark-2); overflow: hidden; transition: 0.3s; border-radius: 12px; }
+    /* ── PROJECTS CAROUSEL ── */
+    .projects-carousel-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .projects-grid {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      cursor: grab;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .projects-grid::-webkit-scrollbar { display: none; }
+    .projects-grid.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+    }
+
+    .project-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      border: 0.5px solid var(--border);
+      background: var(--dark-2);
+      overflow: hidden;
+      transition: 0.3s;
+      border-radius: 12px;
+      cursor: pointer;
+    }
     .project-card:hover { transform: translateY(-6px); border-color: rgba(167,139,250,0.4); box-shadow: 0 20px 50px rgba(38,24,124,0.35); }
     .project-card a { display: block; text-decoration: none; color: inherit; }
-    .project-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; display: block; transition: transform 0.5s ease; }
+    .project-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; display: block; transition: transform 0.5s ease; pointer-events: none; }
     .project-card:hover .project-img { transform: scale(1.03); }
     .project-info { padding: 1.25rem 1.5rem; border-top: 0.5px solid var(--border); }
     .project-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 0.35rem; color: var(--text); }
     .project-info p { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .carousel-arrow {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 0.5px solid rgba(167,139,250,0.4);
+      background: rgba(167,139,250,0.1);
+      color: var(--text);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      z-index: 2;
+    }
+    .carousel-arrow:hover { background: rgba(167,139,250,0.25); border-color: rgba(167,139,250,0.7); }
+    .carousel-arrow:active { transform: scale(0.94); }
 
 /* ── MODAL ── */
 .modal-overlay {
@@ -1029,9 +1092,6 @@ body::selection{
   color: rgba(255,255,255,0.4);
 }
 
-/* cursor pointer على الكارد */
-.project-card { cursor: pointer; }
-
     /* ── CONTACT ── */
     .contact-section {
       background: linear-gradient(135deg, var(--dark-2) 0%, var(--primary-dark) 100%);
@@ -1086,6 +1146,8 @@ body::selection{
       .about-img-wrap img { max-width: 240px; }
       .about-link { justify-content: center; }
       .stats-grid { grid-template-columns: 1fr; max-width: 320px; }
+      .project-card { flex: 0 0 85vw; }
+      .carousel-arrow { display: none; }
     }
   </style>
   
@@ -1218,6 +1280,53 @@ body::selection{
   nav.classList.toggle('open');
   btn.setAttribute('aria-expanded', btn.classList.contains('open'));
 }
+
+  // ── PROJECTS CAROUSEL ──
+  function scrollCarousel(dir) {
+    const track = document.getElementById('projectsCarousel');
+    const card = track.querySelector('.project-card');
+    const gap = 24; // matches 1.5rem gap
+    const scrollAmount = card ? card.offsetWidth + gap : 320;
+    track.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+  }
+
+  (function() {
+    const track = document.getElementById('projectsCarousel');
+    if (!track) return;
+    let isDown = false, startX = 0, scrollLeft = 0, moved = false;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      moved = false;
+      track.classList.add('dragging');
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    ['mouseleave', 'mouseup'].forEach(evName =>
+      track.addEventListener(evName, () => {
+        isDown = false;
+        track.classList.remove('dragging');
+      })
+    );
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = x - startX;
+      if (Math.abs(walk) > 5) moved = true;
+      track.scrollLeft = scrollLeft - walk;
+    });
+
+    // Prevent the modal from opening if the user was dragging instead of clicking
+    track.addEventListener('click', (e) => {
+      if (moved) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+  })();
 </script>
 </body>
 </html>
