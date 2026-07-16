@@ -12,6 +12,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Gate all opacity:0 motion states behind JS: if scripts fail, content stays visible. -->
+  <script>document.documentElement.classList.add('js');</script>
   <title>Professional Website Development — Ahmed Shehata</title>
    <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -19,7 +21,14 @@
 </head>
 <body>
 
-  <nav>
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="mainNav">
     <a href="index.html" class="nav-logo">
             <img src="favicon w.png" alt="Ahmed Shehata">
 
@@ -40,20 +49,42 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-orb-1"></div>
-    <div class="hero-orb-2"></div>
+    <div class="hero-orb-1" data-parallax="0.14"></div>
+    <div class="hero-orb-2" data-parallax="0.1"></div>
+
+    <div class="hero-inner">
     <div class="hero-badge">WordPress Development</div>
     <h1>Websites Built to<br><em>Perform.</em></h1>
     <p class="hero-desc">Fast, modern, and conversion-focused websites  crafted for businesses that care about results, not just appearances.</p>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/201096973281" class="hero-cta" target="_blank">Start a Project</a>
+      <a href="#faq" class="hero-ghost">Common Questions</a>
+    </div>
+    </div><!-- /hero-inner -->
+    <!-- <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">1+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+5</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Responsive</div>
+      </div>
+    </div> -->
   </section>
 
   <!-- WHAT I DO -->
   <section class="what-section">
-    <div class="what-header fade-in">
+    <div class="what-header reveal">
       <h2>What I Do</h2>
       <p>Every service is designed to make your website a real business asset  not just a digital brochure.</p>
     </div>
-    <ul class="service-list fade-in">
+    <ul class="service-list">
       <li class="service-list-item">
         <span class="sli-num">01</span>
         <span class="sli-title">Speed Optimization</span>
@@ -91,7 +122,7 @@
   <section class="includes-section">
     <div class="includes-label">Every project includes</div>
     <div class="includes-title">Built-in from day one</div>
-    <div class="includes-grid fade-in">
+    <div class="includes-grid">
       <div class="include-item">
         <div class="include-icon"></div>
         <h4>SEO-Ready Structure</h4>
@@ -128,11 +159,11 @@
   <!-- TYPES -->
   <section class="types-section">
     <div class="wrap">
-      <div class="types-top fade-in">
+      <div class="types-top reveal">
         <h2>Types of Websites</h2>
         <div class="types-line"></div>
       </div>
-      <div class="types-cards fade-in">
+      <div class="types-cards">
         <div class="type-card">
           <span class="type-num">01</span>
           <h3>Business Websites</h3>
@@ -153,13 +184,13 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section">
+  <section class="faq-section" id="faq">
     <div class="wrap">
-      <div class="faq-top fade-in">
+      <div class="faq-top reveal">
         <h2>Common Questions</h2>
         <p>Everything you might want to know before we start working together  from timelines to pricing to what's included.</p>
       </div>
-      <div class="faq-list fade-in">
+      <div class="faq-list">
         <div class="faq-item is-open">
           <button class="faq-trigger">What does a WordPress website typically cost? <span class="faq-icon">+</span></button>
           <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Pricing depends on the scope  the type of site, how many pages, and what custom features are needed. Once we discuss your requirements, I can give you a clear, itemized quote with no surprises.</div></div></div>
@@ -198,12 +229,14 @@
 
   <!-- CONTACT -->
   <div class="contact-section">
-    <h2>Get In Touch</h2>
-    <p class="contact-sub">Let's build something remarkable together.</p>
+    <span class="aurora aurora-1"></span>
+    <span class="aurora aurora-2"></span>
+    <h2 class="reveal" data-delay="0">Get In Touch</h2>
+    <p class="contact-sub reveal" data-delay="90">Let's build something remarkable together.</p>
     <div class="links">
-      <a href="https://wa.me/201096973281">WhatsApp</a>
-      <a href="https://www.instagram.com/ahmed_shehattta/">Instagram</a>
-        <a href="mailto:ahmedshehatta@gmail.com">Gmail</a>
+      <a class="reveal magnetic" data-delay="160" href="https://wa.me/201096973281">WhatsApp</a>
+      <a class="reveal magnetic" data-delay="230" href="https://www.instagram.com/ahmed_shehattta/">Instagram</a>
+      <a class="reveal magnetic" data-delay="300" href="mailto:ahmedshehatta@gmail.com">Gmail</a>
     </div>
     <div class="bottom">
       <p>© 2025. All rights reserved</p>
@@ -338,6 +371,32 @@
       max-width: 480px; line-height: 1.75;
       opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
     }
+    /* HERO CTA */
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+      margin-top: 2.5rem;
+      opacity: 0; animation: fadeUp 0.8s 0.55s forwards;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2rem; background: var(--primary);
+      border: 1px solid var(--primary-light); color: var(--accent);
+      text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em;
+      text-transform: uppercase; border-radius: 100px;
+      box-shadow: 0 0 20px var(--primary-glow); transition: all 0.3s;
+    }
+    .hero-cta:hover { background: var(--primary-light); box-shadow: 0 0 40px rgba(38,24,124,0.6); transform: translateY(-2px); }
+    .hero-cta::after { content: '→'; transition: transform 0.3s; }
+    .hero-cta:hover::after { transform: translateX(4px); }
+    .hero-ghost {
+      display: inline-flex; align-items: center;
+      padding: 0.9rem 1.8rem; background: transparent; color: var(--violet);
+      text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em;
+      text-transform: uppercase; border-radius: 100px;
+      border: 1px solid var(--border-v); transition: all 0.3s;
+    }
+    .hero-ghost:hover { background: var(--violet-soft); border-color: rgba(167,139,250,0.6); transform: translateY(-2px); }
+
     .hero-stats {
       display: flex; gap: 0; margin-top: 4rem;
       border: 0.5px solid var(--border-v); border-radius: 16px; overflow: hidden;
@@ -513,6 +572,9 @@
     }
   </style>
 
+  <!-- Motion layer: loaded after the inline styles above so it wins on shared selectors -->
+  <link rel="stylesheet" href="motion.css">
+
   <script>
     function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
     const observer = new IntersectionObserver((entries) => {
@@ -537,5 +599,8 @@
   btn.setAttribute('aria-expanded', btn.classList.contains('open'));
 }
   </script>
+
+<!-- Motion engine (shared with Home.html) -->
+<script src="motion.js"></script>
 </body>
 </html>
