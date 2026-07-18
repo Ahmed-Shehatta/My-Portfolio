@@ -149,8 +149,8 @@
 
     <div class="projects-grid" id="projectsCarousel">
 
-      <div class="project-card" onclick="openGalleryModal(['1.png','2.png','3.png'], 'ارث العقاريه', 'Real Estate')">
-        <img src="1.png" alt="ارث العقاريه" class="project-img">
+      <div class="project-card" onclick="openGalleryModal(['2.png','3.png'], 'ارث العقاريه', 'Real Estate')">
+        <img src="2.png" alt="ارث العقاريه" class="project-img">
         <div class="project-info">
            <h3>Erth Real Estate</h3>
           <p>Real Estate</p>
@@ -171,7 +171,6 @@
            <h3>Smile Care</h3>
           <p>Dental Clinic</p>
         </div>
-      </div>
       </div>
 
     </div>
@@ -831,6 +830,8 @@ body::selection{
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .projects-grid {
@@ -852,7 +853,8 @@ body::selection{
     }
 
     .project-card {
-      flex: 0 0 320px;
+      /* two full cards + the 1.5rem gaps + a 72px peek of the third */
+      flex: 0 0 calc(50% - 60px);
       scroll-snap-align: start;
       border: 0.5px solid var(--border);
       background: var(--dark-2);
@@ -1150,7 +1152,7 @@ body::selection{
       .about-img-wrap img { max-width: 240px; }
       .about-link { justify-content: center; }
       .stats-grid { grid-template-columns: 1fr; max-width: 320px; }
-      .project-card { flex: 0 0 85vw; }
+      .project-card { flex: 0 0 80%; } /* one full card + a peek of the next */
       .carousel-arrow { display: none; }
     }
 
@@ -1173,15 +1175,15 @@ body::selection{
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Cursor preview
+  // Cursor preview — delegated so the carousel's cloned cards get it too
   const cursor = document.getElementById("cursorPreview");
-  document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("mouseenter", () => cursor.classList.add("active"));
-    card.addEventListener("mouseleave", () => cursor.classList.remove("active"));
-    card.addEventListener("mousemove", (e) => {
+  document.addEventListener("mousemove", (e) => {
+    const card = e.target.closest && e.target.closest(".project-card");
+    cursor.classList.toggle("active", !!card);
+    if (card) {
       cursor.style.top = e.clientY + "px";
       cursor.style.left = e.clientX + "px";
-    });
+    }
   });
 
   // ── PROJECT MODAL ──
@@ -1301,14 +1303,80 @@ body::selection{
   (function() {
     const track = document.getElementById('projectsCarousel');
     if (!track) return;
-    let isDown = false, startX = 0, scrollLeft = 0, moved = false;
+    const originals = Array.from(track.children);
+    const N = originals.length;
+    if (N < 2) return;
+
+    // Infinite loop: clone two full sets on each side so scrolling never hits a hard edge
+    const CLONE_SETS = 2;
+    const makeClone = (card) => {
+      const c = card.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.classList.add('in-view'); // clones skip the entry reveal, so loop jumps stay invisible
+      return c;
+    };
+    for (let i = 0; i < CLONE_SETS; i++) {
+      originals.forEach(card => track.appendChild(makeClone(card)));
+      for (let j = N - 1; j >= 0; j--) track.insertBefore(makeClone(originals[j]), track.firstChild);
+    }
+
+    let D = 0;        // width of one full set = the loop period
+    let dragBase = 0; // drag anchor, shifted whenever the loop wraps mid-drag
+
+    function measure() {
+      D = track.children[N].offsetLeft - track.children[0].offsetLeft;
+    }
+
+    // Jumping by exactly one set width lands on identical pixels, so it's invisible
+    function jumpBy(delta) {
+      track.style.scrollBehavior = 'auto';
+      track.scrollLeft += delta;
+      track.style.scrollBehavior = '';
+      dragBase += delta;
+    }
+
+    function recenter() {
+      const lo = CLONE_SETS * D;
+      while (track.scrollLeft < lo) jumpBy(D);
+      while (track.scrollLeft >= lo + D) jumpBy(-D);
+    }
+
+    measure();
+    track.style.scrollBehavior = 'auto';
+    track.scrollLeft = CLONE_SETS * D;
+    track.style.scrollBehavior = '';
+
+    let settleTimer;
+    track.addEventListener('scroll', () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const edge = D / N; // ~one card away from a hard edge
+      if (track.scrollLeft < edge) jumpBy(D);
+      else if (track.scrollLeft > max - edge) jumpBy(-D);
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(recenter, 150);
+    }, { passive: true });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const idx = Math.round((track.scrollLeft - CLONE_SETS * D) / (D / N));
+        measure();
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = CLONE_SETS * D + idx * (D / N);
+        track.style.scrollBehavior = '';
+      }, 120);
+    });
+
+    // Drag to scroll
+    let isDown = false, startX = 0, moved = false;
 
     track.addEventListener('mousedown', (e) => {
       isDown = true;
       moved = false;
       track.classList.add('dragging');
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
+      startX = e.pageX;
+      dragBase = track.scrollLeft;
     });
 
     ['mouseleave', 'mouseup'].forEach(evName =>
@@ -1321,10 +1389,9 @@ body::selection{
     track.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      const walk = x - startX;
+      const walk = e.pageX - startX;
       if (Math.abs(walk) > 5) moved = true;
-      track.scrollLeft = scrollLeft - walk;
+      track.scrollLeft = dragBase - walk;
     });
 
     // Prevent the modal from opening if the user was dragging instead of clicking
