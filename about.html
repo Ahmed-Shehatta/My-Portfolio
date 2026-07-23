@@ -13,6 +13,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Ahmed Shehata</title>
+  <!-- Apply saved language before paint to avoid a flash of the wrong direction. -->
+  <script>(function(){try{if(localStorage.getItem('siteLang')==='ar'){var d=document.documentElement;d.lang='ar';d.dir='rtl';d.classList.add('ar-mode');}}catch(e){}})();</script>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -34,7 +36,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="Services.html">Services</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
     </ul>
   </nav>
 
@@ -42,8 +44,8 @@
     <div class="profile-img-wrapper">
       <img src="1-1.webp" alt="Ahmed Shehata">
     </div>
-    <h2 class="who">Who Is Ahmed</h2>
-    <p class="wh">
+    <h2 class="who" data-ar="من هو أحمد">Who Is Ahmed</h2>
+    <p class="wh" data-ar="أنا مطوّر ووردبريس أركّز على بناء مواقع نظيفة وعملية تساعد الأنشطة التجارية على النمو عبر الإنترنت. أتخصص في ووردبريس وElementor وWooCommerce — بدءًا من مواقع الأعمال وصولًا إلى متاجر التجارة الإلكترونية الكاملة. علّمت نفسي بنفسي وأركّز على النتائج، بأسلوب عملي في كل مشروع من التصميم الأولي حتى الإطلاق النهائي.">
       I'm a WordPress Developer focused on building clean, functional websites that help businesses grow online.
       I specialize in WordPress, Elementor, and WooCommerce  covering everything from business portfolios to full e-commerce stores.
       I'm self-taught and results-driven, with a hands-on approach to every project  from initial design to final deployment.
@@ -354,5 +356,7 @@
 }
   </script>
 
+<!-- Bilingual EN ⇄ AR toggle (shared site-wide) -->
+<script src="lang.js"></script>
 </body>
 </html>
