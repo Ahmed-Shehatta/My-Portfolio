@@ -13,7 +13,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Gate all opacity:0 motion states behind JS: if scripts fail, content stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
-  <title>Projects - Ahmed Shehata</title>
+  <!-- Apply saved language before paint to avoid a flash of the wrong direction. -->
+  <script>(function(){try{if(localStorage.getItem('siteLang')==='ar'){var d=document.documentElement;d.lang='ar';d.dir='rtl';d.classList.add('ar-mode');}}catch(e){}})();</script>
+  <!-- Critical: the marquee relies on LTR flow and is laid out before lang.css
+       loads, so pin its direction here. -->
+  <style>html[dir="rtl"] .tm-marquee,html[dir="rtl"] .tm-track{direction:ltr}</style>
+  <title>Projects — Ahmed Shehata</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500&display=swap" rel="stylesheet">
 </head>
@@ -53,27 +58,27 @@
     <div class="orb orb-2" data-parallax="0.1"></div>
 
     <div class="page-hero-inner">
-      <div class="hero-tag">Selected Work</div>
-      <h1>Projects that<br><span>deliver.</span></h1>
-      <p class="page-hero-sub">
-        Real websites built for real businesses  restaurants, clinics, and real estate.
+      <div class="hero-tag" data-ar="أعمال مختارة">Selected Work</div>
+      <h1 data-ar="مشاريع<br><span>تُحقّق النتائج.</span>">Projects that<br><span>deliver.</span></h1>
+      <p class="page-hero-sub" data-ar="مواقع حقيقية بُنيت لأنشطة تجارية حقيقية — مطاعم وعيادات وعقارات. كل مشروع مصمّم ليبدو موثوقًا ويحوّل الزوّار إلى عملاء.">
+        Real websites built for real businesses — restaurants, clinics, and real estate.
         Every project is designed to look credible and convert visitors into customers.
       </p>
 
       <div class="hero-stats reveal">
         <div class="hero-stat">
           <span class="hero-stat-num" data-count="4">0</span>
-          <span class="hero-stat-label">Projects</span>
+          <span class="hero-stat-label" data-ar="مشاريع">Projects</span>
         </div>
         <div class="hero-stat-divider"></div>
         <div class="hero-stat">
           <span class="hero-stat-num" data-count="3">0</span>
-          <span class="hero-stat-label">Industries</span>
+          <span class="hero-stat-label" data-ar="مجالات">Industries</span>
         </div>
         <div class="hero-stat-divider"></div>
         <div class="hero-stat">
           <span class="hero-stat-num">AR/EN</span>
-          <span class="hero-stat-label">Bilingual</span>
+          <span class="hero-stat-label" data-ar="ثنائي اللغة">Bilingual</span>
         </div>
       </div>
     </div>
@@ -83,15 +88,15 @@
   <!-- PROJECTS                               -->
   <!-- ══════════════════════════════════════ -->
   <section id="all-projects">
-    <div class="section-label reveal">Portfolio</div>
+    <div class="section-label reveal" data-ar="أعمالي">Portfolio</div>
 
     <!-- Filter tabs (segmented control) -->
     <div class="filter-tabs reveal" role="tablist" aria-label="Filter projects">
       <span class="filter-glider" id="filterGlider"></span>
-      <button class="filter-tab active" data-filter="all" onclick="filterProjects(this)">All</button>
-      <button class="filter-tab" data-filter="real-estate" onclick="filterProjects(this)">Real Estate</button>
-      <button class="filter-tab" data-filter="restaurant" onclick="filterProjects(this)">Restaurant</button>
-      <button class="filter-tab" data-filter="clinic" onclick="filterProjects(this)">Clinic</button>
+      <button class="filter-tab active" data-filter="all" onclick="filterProjects(this)" data-ar="الكل">All</button>
+      <button class="filter-tab" data-filter="real-estate" onclick="filterProjects(this)" data-ar="عقارات">Real Estate</button>
+      <button class="filter-tab" data-filter="restaurant" onclick="filterProjects(this)" data-ar="مطاعم">Restaurant</button>
+      <button class="filter-tab" data-filter="clinic" onclick="filterProjects(this)" data-ar="عيادات">Clinic</button>
     </div>
 
     <div class="showcase-grid" id="showcaseGrid">
@@ -101,14 +106,14 @@
                onclick="openGalleryModal(['الرئيسيه.png','المشاريع.png','التواصل.png'], 'ارث العقاريه', 'Real Estate')">
         <div class="showcase-media">
           <img src="الرئيسيه.png" alt="Erth Real Estate website" loading="lazy">
-          <span class="showcase-badge">Real Estate</span>
+          <span class="showcase-badge" data-ar="عقارات">Real Estate</span>
           <div class="showcase-overlay">
-            <span class="showcase-view">View Gallery ↗</span>
+            <span class="showcase-view" data-ar="عرض المعرض ↗">View Gallery ↗</span>
           </div>
         </div>
         <div class="showcase-body">
           <h3>Erth Real Estate</h3>
-          <p>A bilingual real-estate platform with property showcases, project pages, and a clean Arabic-first design that builds trust with buyers.</p>
+          <p data-ar="منصة عقارية ثنائية اللغة تعرض العقارات وصفحات المشاريع بتصميم نظيف يبدأ بالعربية ويبني الثقة مع المشترين.">A bilingual real-estate platform with property showcases, project pages, and a clean Arabic-first design that builds trust with buyers.</p>
           <div class="showcase-tags">
             <span class="tag">WordPress</span>
             <span class="tag">Elementor</span>
@@ -122,14 +127,14 @@
                onclick="openGalleryModal(['d home.png','d properties.png','d about.png','d contact.png'], 'Dyari', 'Real Estate')">
         <div class="showcase-media">
           <img src="d home.png" alt="Dyari Real Estate website" loading="lazy">
-          <span class="showcase-badge">Real Estate</span>
+          <span class="showcase-badge" data-ar="عقارات">Real Estate</span>
           <div class="showcase-overlay">
-            <span class="showcase-view">View Gallery ↗</span>
+            <span class="showcase-view" data-ar="عرض المعرض ↗">View Gallery ↗</span>
           </div>
         </div>
         <div class="showcase-body">
           <h3>Dyari Real Estate</h3>
-          <p>A modern real-estate website with property listings, about, and contact pages  built to present properties clearly and generate serious inquiries.</p>
+          <p data-ar="موقع عقاري عصري يضم قوائم العقارات وصفحات التعريف والتواصل — صُمّم لعرض العقارات بوضوح وتوليد استفسارات جادّة.">A modern real-estate website with property listings, about, and contact pages — built to present properties clearly and generate serious inquiries.</p>
           <div class="showcase-tags">
             <span class="tag">WordPress</span>
             <span class="tag">Listings</span>
@@ -143,14 +148,14 @@
                onclick="openGalleryModal(['Home Page.png','Menu Page.png','Private-Events Page.png'], 'Ferra Restaurant', 'Restaurant')">
         <div class="showcase-media">
           <img src="Home Page.png" alt="Ferra Restaurant website" loading="lazy">
-          <span class="showcase-badge">Restaurant</span>
+          <span class="showcase-badge" data-ar="مطعم">Restaurant</span>
           <div class="showcase-overlay">
-            <span class="showcase-view">View Gallery ↗</span>
+            <span class="showcase-view" data-ar="عرض المعرض ↗">View Gallery ↗</span>
           </div>
         </div>
         <div class="showcase-body">
           <h3>Ferra Restaurant</h3>
-          <p>An elegant restaurant site with a full menu experience, private-events page, and a warm visual identity designed to fill tables.</p>
+          <p data-ar="موقع مطعم أنيق بتجربة قائمة طعام كاملة، وصفحة للمناسبات الخاصة، وهوية بصرية دافئة صُمّمت لملء الطاولات.">An elegant restaurant site with a full menu experience, private-events page, and a warm visual identity designed to fill tables.</p>
           <div class="showcase-tags">
             <span class="tag">WordPress</span>
             <span class="tag">Menu Design</span>
@@ -164,14 +169,14 @@
                onclick="openGalleryModal(['home.png','about.png','services.png','contact.png'], 'Smile Care', 'Dental Clinic')">
         <div class="showcase-media">
           <img src="home.png" alt="Smile Care Clinic website" loading="lazy">
-          <span class="showcase-badge">Dental Clinic</span>
+          <span class="showcase-badge" data-ar="عيادة أسنان">Dental Clinic</span>
           <div class="showcase-overlay">
-            <span class="showcase-view">View Gallery ↗</span>
+            <span class="showcase-view" data-ar="عرض المعرض ↗">View Gallery ↗</span>
           </div>
         </div>
         <div class="showcase-body">
           <h3>Smile Care Clinic</h3>
-          <p>A clean, reassuring dental clinic website with services, about, and contact pages built to turn visitors into booked appointments.</p>
+          <p data-ar="موقع عيادة أسنان نظيف ومطمئن يضم صفحات الخدمات والتعريف والتواصل، صُمّم لتحويل الزوّار إلى مواعيد محجوزة.">A clean, reassuring dental clinic website with services, about, and contact pages built to turn visitors into booked appointments.</p>
           <div class="showcase-tags">
             <span class="tag">WordPress</span>
             <span class="tag">Healthcare</span>
@@ -182,34 +187,124 @@
 
     </div>
 
-    <p class="showcase-empty" id="showcaseEmpty" hidden>No projects in this category yet  more coming soon.</p>
+    <p class="showcase-empty" id="showcaseEmpty" hidden data-ar="لا توجد مشاريع في هذا القسم بعد — المزيد قريبًا.">No projects in this category yet — more coming soon.</p>
   </section>
 
   <!-- ══════════════════════════════════════ -->
   <!-- PROCESS STRIP                          -->
   <!-- ══════════════════════════════════════ -->
   <section id="process">
-    <div class="section-label reveal">How I Work</div>
+    <div class="section-label reveal" data-ar="كيف أعمل">How I Work</div>
     <div class="process-grid">
       <div class="process-step reveal spotlight" data-delay="0">
         <div class="process-num">01</div>
-        <h3>Discover</h3>
-        <p>We talk about your business, your customers, and what the website needs to achieve.</p>
+        <h3 data-ar="الاستكشاف">Discover</h3>
+        <p data-ar="نتحدث عن نشاطك التجاري وعملائك وما يحتاج الموقع إلى تحقيقه.">We talk about your business, your customers, and what the website needs to achieve.</p>
       </div>
       <div class="process-step reveal spotlight" data-delay="100">
         <div class="process-num">02</div>
-        <h3>Design</h3>
-        <p>A modern design built around your brand reviewed with you before a single line goes live.</p>
+        <h3 data-ar="التصميم">Design</h3>
+        <p data-ar="تصميم عصري مبنيّ حول علامتك التجارية — نراجعه معك قبل نشر أي سطر.">A modern design built around your brand — reviewed with you before a single line goes live.</p>
       </div>
       <div class="process-step reveal spotlight" data-delay="200">
         <div class="process-num">03</div>
-        <h3>Build</h3>
-        <p>Fast, responsive WordPress development with clean structure and SEO basics done right.</p>
+        <h3 data-ar="التطوير">Build</h3>
+        <p data-ar="تطوير ووردبريس سريع ومتجاوب ببنية نظيفة وأساسيات سيو مضبوطة كما ينبغي.">Fast, responsive WordPress development with clean structure and SEO basics done right.</p>
       </div>
       <div class="process-step reveal spotlight" data-delay="300">
         <div class="process-num">04</div>
-        <h3>Launch</h3>
-        <p>Deployment, final checks on every device, and handover  with support after launch.</p>
+        <h3 data-ar="الإطلاق">Launch</h3>
+        <p data-ar="النشر، والفحص النهائي على كل الأجهزة، والتسليم — مع دعم بعد الإطلاق.">Deployment, final checks on every device, and handover — with support after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- TESTIMONIALS                           -->
+  <!-- ══════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="section-label reveal" data-ar="آراء العملاء">Testimonials</div>
+    <p class="testimonials-intro reveal" data-ar="ماذا يقول العملاء عن العمل معي.">What clients say about working with me.</p>
+
+    <div class="tm-marquee reveal">
+      <div class="tm-track">
+        <!-- Set 1 -->
+        <div class="tm-group">
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="حوّل أحمد أفكارنا إلى موقع سريع وأنيق يمتدحه عملاؤنا باستمرار. كانت العملية كلها سلسة للغاية.">Ahmed turned our ideas into a fast, elegant website that our customers constantly compliment. The whole process felt effortless.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">F</span>
+              <span class="tm-person"><strong>Ferra Restaurant</strong><span data-ar="صاحب المطعم">Owner</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="أصبح موقعنا الجديد أخيرًا بمستوى فخامة العقارات التي نبيعها. ازدادت الاستفسارات الجادّة خلال الشهر الأول من الإطلاق.">Our new site finally looks as premium as the properties we sell. Serious inquiries went up within the first month of launch.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">D</span>
+              <span class="tm-person"><strong>Dyari Real Estate</strong><span data-ar="المدير">Manager</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="فهم تمامًا ما تحتاجه العيادة — تصميم نظيف ومطمئن وسهل الحجز. لم تكن طلبات المواعيد لدينا أعلى من الآن.">He understood exactly what a clinic needs — clean, reassuring, and easy to book. Our appointment requests have never been higher.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">S</span>
+              <span class="tm-person"><strong>Smile Care Clinic</strong><span data-ar="المؤسِّس">Founder</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="محترف وسريع الاستجابة ومهتم فعليًا بالنتيجة. سلّم أحمد العمل قبل الموعد ودعمنا لفترة طويلة بعد الإطلاق.">Professional, responsive, and genuinely invested in the result. Ahmed delivered ahead of schedule and supported us long after launch.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">E</span>
+              <span class="tm-person"><strong>Erth Real Estate</strong><span data-ar="المدير">Director</span></span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="tm-group" aria-hidden="true">
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="حوّل أحمد أفكارنا إلى موقع سريع وأنيق يمتدحه عملاؤنا باستمرار. كانت العملية كلها سلسة للغاية.">Ahmed turned our ideas into a fast, elegant website that our customers constantly compliment. The whole process felt effortless.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">F</span>
+              <span class="tm-person"><strong>Ferra Restaurant</strong><span data-ar="صاحب المطعم">Owner</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="أصبح موقعنا الجديد أخيرًا بمستوى فخامة العقارات التي نبيعها. ازدادت الاستفسارات الجادّة خلال الشهر الأول من الإطلاق.">Our new site finally looks as premium as the properties we sell. Serious inquiries went up within the first month of launch.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">D</span>
+              <span class="tm-person"><strong>Dyari Real Estate</strong><span data-ar="المدير">Manager</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="فهم تمامًا ما تحتاجه العيادة — تصميم نظيف ومطمئن وسهل الحجز. لم تكن طلبات المواعيد لدينا أعلى من الآن.">He understood exactly what a clinic needs — clean, reassuring, and easy to book. Our appointment requests have never been higher.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">S</span>
+              <span class="tm-person"><strong>Smile Care Clinic</strong><span data-ar="المؤسِّس">Founder</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="tm-card">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote data-ar="محترف وسريع الاستجابة ومهتم فعليًا بالنتيجة. سلّم أحمد العمل قبل الموعد ودعمنا لفترة طويلة بعد الإطلاق.">Professional, responsive, and genuinely invested in the result. Ahmed delivered ahead of schedule and supported us long after launch.</blockquote>
+            <figcaption>
+              <span class="tm-avatar">E</span>
+              <span class="tm-person"><strong>Erth Real Estate</strong><span data-ar="المدير">Director</span></span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -921,6 +1016,90 @@
       font-variant-numeric: tabular-nums;
     }
 
+    /* ── TESTIMONIALS ── */
+    .testimonials-intro {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: -1.5rem auto 3rem;
+      max-width: 480px;
+    }
+    .tm-marquee {
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+      -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+              mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .tm-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: tmScroll 44s linear infinite;
+    }
+    .tm-marquee:hover .tm-track { animation-play-state: paused; }
+    .tm-group { display: flex; gap: 1.5rem; flex-shrink: 0; }
+    @keyframes tmScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(-50% - 0.75rem)); }
+    }
+
+    .tm-card {
+      flex: 0 0 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--dark-2);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .tm-card:hover {
+      border-color: rgba(167,139,250,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(38,24,124,0.3);
+    }
+    .tm-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.15em; }
+    .tm-card blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text);
+      font-style: italic;
+    }
+    .tm-card figcaption {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 0.5px solid var(--border);
+    }
+    .tm-avatar {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      background: linear-gradient(135deg, rgba(167,139,250,0.25), rgba(38,24,124,0.55));
+      border: 0.5px solid rgba(167,139,250,0.35);
+    }
+    .tm-person { display: flex; flex-direction: column; line-height: 1.35; }
+    .tm-person strong { font-weight: 500; font-size: 0.9rem; color: var(--text); }
+    .tm-person span { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tm-track { animation: none; }
+      .tm-marquee { overflow-x: auto; }
+    }
+
     /* ── CONTACT ── */
     .contact-section {
       background: linear-gradient(135deg, var(--dark-2) 0%, var(--primary-dark) 100%);
@@ -969,6 +1148,7 @@
       .hero-stats { gap: 1rem; }
       .showcase-grid { grid-template-columns: 1fr; }
       .filter-tabs { width: 100%; justify-content: flex-start; }
+      .tm-card { flex-basis: 280px; padding: 1.5rem; }
     }
   </style>
 
@@ -1234,5 +1414,7 @@
 
 <!-- Motion engine (shared with Home + Services) -->
 <script src="motion.js"></script>
+<!-- Bilingual EN ⇄ AR toggle (shared site-wide) -->
+<script src="lang.js"></script>
 </body>
 </html>
