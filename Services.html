@@ -14,6 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Gate all opacity:0 motion states behind JS: if scripts fail, content stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Apply saved language before paint to avoid a flash of the wrong direction. -->
+  <script>(function(){try{if(localStorage.getItem('siteLang')==='ar'){var d=document.documentElement;d.lang='ar';d.dir='rtl';d.classList.add('ar-mode');}}catch(e){}})();</script>
   <title>Professional Website Development — Ahmed Shehata</title>
    <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -43,7 +45,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="Services.html">Services</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
     </ul>
   </nav>
 
@@ -53,13 +55,13 @@
     <div class="hero-orb-2" data-parallax="0.1"></div>
 
     <div class="hero-inner">
-    <div class="hero-badge">WordPress Development</div>
-    <h1>Websites Built to<br><em>Perform.</em></h1>
-    <p class="hero-desc">Fast, modern, and conversion-focused websites  crafted for businesses that care about results, not just appearances.</p>
+    <div class="hero-badge" data-ar="تطوير ووردبريس">WordPress Development</div>
+    <h1 data-ar="مواقع مبنية<br><em>لتحقّق النتائج.</em>">Websites Built to<br><em>Perform.</em></h1>
+    <p class="hero-desc" data-ar="مواقع سريعة وعصرية تركّز على التحويل — مصمّمة للأنشطة التجارية التي تهتم بالنتائج، لا بالمظهر فقط.">Fast, modern, and conversion-focused websites  crafted for businesses that care about results, not just appearances.</p>
 
     <div class="hero-actions">
-      <a href="https://wa.me/201096973281" class="hero-cta" target="_blank">Start a Project</a>
-      <a href="#faq" class="hero-ghost">Common Questions</a>
+      <a href="https://wa.me/201096973281" class="hero-cta" target="_blank" data-ar="ابدأ مشروعك">Start a Project</a>
+      <a href="#faq" class="hero-ghost" data-ar="الأسئلة الشائعة">Common Questions</a>
     </div>
     </div><!-- /hero-inner -->
     <!-- <div class="hero-stats">
@@ -81,77 +83,77 @@
   <!-- WHAT I DO -->
   <section class="what-section">
     <div class="what-header reveal">
-      <h2>What I Do</h2>
-      <p>Every service is designed to make your website a real business asset  not just a digital brochure.</p>
+      <h2 data-ar="ما الذي أقدّمه">What I Do</h2>
+      <p data-ar="كل خدمة مصمّمة لتجعل موقعك أصلًا حقيقيًا لنشاطك التجاري — لا مجرد كتيّب رقمي.">Every service is designed to make your website a real business asset  not just a digital brochure.</p>
     </div>
     <ul class="service-list">
       <li class="service-list-item">
         <span class="sli-num">01</span>
-        <span class="sli-title">Speed Optimization</span>
-        <span class="sli-desc">Core Web Vitals tuning, image compression, caching strategies, and server-side performance fixes that make your site load instantly on any device.</span>
-        <span class="sli-tag">Performance</span>
+        <span class="sli-title" data-ar="تحسين السرعة">Speed Optimization</span>
+        <span class="sli-desc" data-ar="ضبط مؤشرات Core Web Vitals، وضغط الصور، واستراتيجيات التخزين المؤقت، ومعالجة الأداء على مستوى الخادم لجعل موقعك يُحمّل فورًا على أي جهاز.">Core Web Vitals tuning, image compression, caching strategies, and server-side performance fixes that make your site load instantly on any device.</span>
+        <span class="sli-tag" data-ar="الأداء">Performance</span>
       </li>
       <li class="service-list-item">
         <span class="sli-num">02</span>
-        <span class="sli-title">Custom Development</span>
-        <span class="sli-desc">Tailored features, ACF integrations, REST API connections, and custom post types  built exactly the way your business workflow requires.</span>
+        <span class="sli-title" data-ar="تطوير مخصّص">Custom Development</span>
+        <span class="sli-desc" data-ar="ميزات مخصّصة، وتكاملات ACF، وربط بواجهات REST API، وأنواع منشورات مخصّصة — مبنية تمامًا بالطريقة التي يتطلّبها سير عمل نشاطك التجاري.">Tailored features, ACF integrations, REST API connections, and custom post types  built exactly the way your business workflow requires.</span>
         <span class="sli-tag">WordPress</span>
       </li>
       <li class="service-list-item">
         <span class="sli-num">03</span>
-        <span class="sli-title">UX / UI Design</span>
-        <span class="sli-desc">Clean, intentional layouts that guide visitors toward action. Every element is placed to improve engagement, clarity, and conversion rate.</span>
-        <span class="sli-tag">Design</span>
+        <span class="sli-title" data-ar="تصميم تجربة وواجهة المستخدم">UX / UI Design</span>
+        <span class="sli-desc" data-ar="تخطيطات نظيفة ومدروسة توجّه الزوّار نحو اتخاذ إجراء. كل عنصر موضوع بعناية لتحسين التفاعل والوضوح ومعدّل التحويل.">Clean, intentional layouts that guide visitors toward action. Every element is placed to improve engagement, clarity, and conversion rate.</span>
+        <span class="sli-tag" data-ar="تصميم">Design</span>
       </li>
       <li class="service-list-item">
         <span class="sli-num">04</span>
-        <span class="sli-title">WooCommerce Stores</span>
-        <span class="sli-desc">Full e-commerce setups with payment gateways, product management, shipping logic, and a checkout experience customers actually complete.</span>
-        <span class="sli-tag">E-commerce</span>
+        <span class="sli-title" data-ar="متاجر WooCommerce">WooCommerce Stores</span>
+        <span class="sli-desc" data-ar="إعداد متكامل للتجارة الإلكترونية مع بوابات دفع، وإدارة للمنتجات، ومنطق للشحن، وتجربة دفع يُكملها العملاء فعلًا.">Full e-commerce setups with payment gateways, product management, shipping logic, and a checkout experience customers actually complete.</span>
+        <span class="sli-tag" data-ar="تجارة إلكترونية">E-commerce</span>
       </li>
       <li class="service-list-item">
         <span class="sli-num">05</span>
-        <span class="sli-title">Monthly Maintenance</span>
-        <span class="sli-desc">Ongoing updates, security scans, backups, and minor content edits  so you never have to worry about your site breaking or falling behind.</span>
-        <span class="sli-tag">Ongoing</span>
+        <span class="sli-title" data-ar="صيانة شهرية">Monthly Maintenance</span>
+        <span class="sli-desc" data-ar="تحديثات مستمرة، وفحوص أمنية، ونسخ احتياطية، وتعديلات محتوى بسيطة — حتى لا تقلق أبدًا من تعطّل موقعك أو تأخّره.">Ongoing updates, security scans, backups, and minor content edits  so you never have to worry about your site breaking or falling behind.</span>
+        <span class="sli-tag" data-ar="مستمر">Ongoing</span>
       </li>
     </ul>
   </section>
 
   <!-- ALWAYS INCLUDED -->
   <section class="includes-section">
-    <div class="includes-label">Every project includes</div>
-    <div class="includes-title">Built-in from day one</div>
+    <div class="includes-label" data-ar="كل مشروع يتضمّن">Every project includes</div>
+    <div class="includes-title" data-ar="جاهز منذ اليوم الأول">Built-in from day one</div>
     <div class="includes-grid">
       <div class="include-item">
         <div class="include-icon"></div>
-        <h4>SEO-Ready Structure</h4>
-        <p>Clean code hierarchy, proper heading tags, meta setup, schema markup, and optimized images  visible to Google from the first publish.</p>
+        <h4 data-ar="بنية جاهزة للسيو">SEO-Ready Structure</h4>
+        <p data-ar="تسلسل نظيف للكود، ووسوم عناوين صحيحة، وإعداد للميتا، وترميز Schema، وصور محسّنة — ظاهرة لجوجل منذ أول نشر.">Clean code hierarchy, proper heading tags, meta setup, schema markup, and optimized images  visible to Google from the first publish.</p>
       </div>
       <div class="include-item">
         <div class="include-icon"></div>
-        <h4>Fully Responsive</h4>
-        <p>Every layout is tested across phones, tablets, and desktops no broken grids, no overflowing text, no compromises on mobile.</p>
+        <h4 data-ar="متجاوب بالكامل">Fully Responsive</h4>
+        <p data-ar="كل تخطيط مُختبر على الهواتف والأجهزة اللوحية وأجهزة سطح المكتب — بلا شبكات مكسورة ولا نصوص متجاوزة ولا أي تنازلات على الجوّال.">Every layout is tested across phones, tablets, and desktops no broken grids, no overflowing text, no compromises on mobile.</p>
       </div>
       <div class="include-item">
         <div class="include-icon"></div>
-        <h4>Security Hardening</h4>
-        <p>SSL setup, login protection, plugin auditing, and firewall configuration to keep your site safe from common vulnerabilities.</p>
+        <h4 data-ar="تقوية الحماية">Security Hardening</h4>
+        <p data-ar="إعداد SSL، وحماية تسجيل الدخول، وتدقيق الإضافات، وضبط الجدار الناري للحفاظ على أمان موقعك من الثغرات الشائعة.">SSL setup, login protection, plugin auditing, and firewall configuration to keep your site safe from common vulnerabilities.</p>
       </div>
       <div class="include-item">
         <div class="include-icon"></div>
-        <h4>Easy-to-Manage Dashboard</h4>
-        <p>I configure WordPress so you or your team can edit content, add products, or update pages without needing a developer every time.</p>
+        <h4 data-ar="لوحة تحكّم سهلة الإدارة">Easy-to-Manage Dashboard</h4>
+        <p data-ar="أُهيّئ ووردبريس بحيث يمكنك أنت أو فريقك تعديل المحتوى أو إضافة المنتجات أو تحديث الصفحات دون الحاجة إلى مطوّر في كل مرة.">I configure WordPress so you or your team can edit content, add products, or update pages without needing a developer every time.</p>
       </div>
       <div class="include-item">
         <div class="include-icon"></div>
-        <h4>Clear Communication</h4>
-        <p>Regular progress updates, fast response times, and a handover walkthrough so you always know the status and how to use what's built.</p>
+        <h4 data-ar="تواصل واضح">Clear Communication</h4>
+        <p data-ar="تحديثات منتظمة عن التقدّم، وأوقات استجابة سريعة، وجولة تسليم توضيحية حتى تعرف دائمًا حالة العمل وكيفية استخدام ما بُني.">Regular progress updates, fast response times, and a handover walkthrough so you always know the status and how to use what's built.</p>
       </div>
       <div class="include-item">
         <div class="include-icon"></div>
-        <h4>Launch-Ready Setup</h4>
-        <p>Caching, CDN configuration, and pre-launch checklist completed before delivery so your site goes live performing at its best.</p>
+        <h4 data-ar="إعداد جاهز للإطلاق">Launch-Ready Setup</h4>
+        <p data-ar="التخزين المؤقت، وإعداد شبكة CDN، وقائمة فحص ما قبل الإطلاق — كلها مكتملة قبل التسليم حتى ينطلق موقعك بأفضل أداء.">Caching, CDN configuration, and pre-launch checklist completed before delivery so your site goes live performing at its best.</p>
       </div>
     </div>
   </section>
@@ -160,24 +162,24 @@
   <section class="types-section">
     <div class="wrap">
       <div class="types-top reveal">
-        <h2>Types of Websites</h2>
+        <h2 data-ar="أنواع المواقع">Types of Websites</h2>
         <div class="types-line"></div>
       </div>
       <div class="types-cards">
         <div class="type-card">
           <span class="type-num">01</span>
-          <h3>Business Websites</h3>
-          <p>Clean, professional sites built to establish credibility, present your services clearly, and turn visitors into leads or clients.</p>
+          <h3 data-ar="مواقع الأعمال">Business Websites</h3>
+          <p data-ar="مواقع نظيفة واحترافية مبنية لترسيخ المصداقية، وعرض خدماتك بوضوح، وتحويل الزوّار إلى عملاء محتملين أو فعليين.">Clean, professional sites built to establish credibility, present your services clearly, and turn visitors into leads or clients.</p>
         </div>
         <div class="type-card">
           <span class="type-num">02</span>
-          <h3>E-commerce Stores</h3>
-          <p>WooCommerce-powered stores with full product management, secure payment gateways, and a smooth checkout that converts.</p>
+          <h3 data-ar="متاجر إلكترونية">E-commerce Stores</h3>
+          <p data-ar="متاجر مبنية على WooCommerce مع إدارة كاملة للمنتجات، وبوابات دفع آمنة، وتجربة دفع سلسة تُحقّق التحويل.">WooCommerce-powered stores with full product management, secure payment gateways, and a smooth checkout that converts.</p>
         </div>
         <div class="type-card">
           <span class="type-num">03</span>
-          <h3>Educational Platforms</h3>
-          <p>Learning management systems for course creators  with enrollment flows, lesson structures, and progress tracking built in.</p>
+          <h3 data-ar="منصّات تعليمية">Educational Platforms</h3>
+          <p data-ar="أنظمة إدارة تعلّم لمنشئي الدورات — مع مسارات تسجيل، وهياكل للدروس، وتتبّع للتقدّم مدمج بالكامل.">Learning management systems for course creators  with enrollment flows, lesson structures, and progress tracking built in.</p>
         </div>
       </div>
     </div>
@@ -187,41 +189,41 @@
   <section class="faq-section" id="faq">
     <div class="wrap">
       <div class="faq-top reveal">
-        <h2>Common Questions</h2>
-        <p>Everything you might want to know before we start working together  from timelines to pricing to what's included.</p>
+        <h2 data-ar="الأسئلة الشائعة">Common Questions</h2>
+        <p data-ar="كل ما قد ترغب في معرفته قبل أن نبدأ العمل معًا — من المدد الزمنية إلى الأسعار إلى ما هو مشمول.">Everything you might want to know before we start working together  from timelines to pricing to what's included.</p>
       </div>
       <div class="faq-list">
         <div class="faq-item is-open">
-          <button class="faq-trigger">What does a WordPress website typically cost? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Pricing depends on the scope  the type of site, how many pages, and what custom features are needed. Once we discuss your requirements, I can give you a clear, itemized quote with no surprises.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="كم يكلّف موقع ووردبريس عادةً؟">What does a WordPress website typically cost?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="يعتمد السعر على نطاق العمل — نوع الموقع، وعدد الصفحات، والميزات المخصّصة المطلوبة. بمجرد أن نناقش متطلباتك، يمكنني أن أقدّم لك عرض سعر واضحًا ومفصّلًا بلا مفاجآت.">Pricing depends on the scope  the type of site, how many pages, and what custom features are needed. Once we discuss your requirements, I can give you a clear, itemized quote with no surprises.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">How long does the build process usually take? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Most business websites are delivered within 1–3 weeks. More complex builds with custom functionality or large content libraries may take longer  I'll give you a realistic timeline upfront.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="كم يستغرق تنفيذ الموقع عادةً؟">How long does the build process usually take?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="تُسلّم معظم مواقع الأعمال خلال أسبوع إلى ثلاثة أسابيع. أما المشاريع الأكثر تعقيدًا بميزات مخصّصة أو مكتبات محتوى كبيرة فقد تستغرق وقتًا أطول — وسأعطيك جدولًا زمنيًا واقعيًا مسبقًا.">Most business websites are delivered within 1–3 weeks. More complex builds with custom functionality or large content libraries may take longer  I'll give you a realistic timeline upfront.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">Is ongoing maintenance something you offer? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Yes  I offer monthly maintenance plans covering plugin and core updates, automated backups, security monitoring, and minor content edits to keep everything running smoothly after launch.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="هل تقدّم صيانة مستمرة؟">Is ongoing maintenance something you offer?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="نعم — أقدّم خطط صيانة شهرية تشمل تحديثات الإضافات والنواة، ونسخًا احتياطية آلية، ومراقبة أمنية، وتعديلات محتوى بسيطة للحفاظ على سلاسة كل شيء بعد الإطلاق.">Yes  I offer monthly maintenance plans covering plugin and core updates, automated backups, security monitoring, and minor content edits to keep everything running smoothly after launch.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">Will the site be set up for search engines from day one? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Absolutely. Every site includes foundational on-page SEO: logical heading structure, meta titles and descriptions, image alt text, schema markup, and clean URL slugs — a solid base for any SEO strategy you build on later.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="هل سيكون الموقع مهيّأً لمحركات البحث منذ اليوم الأول؟">Will the site be set up for search engines from day one?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="بالتأكيد. كل موقع يتضمّن أساسيات السيو داخل الصفحة: هيكل عناوين منطقي، وعناوين وأوصاف ميتا، ونص بديل للصور، وترميز Schema، وروابط نظيفة — أساس متين لأي استراتيجية سيو تبني عليها لاحقًا.">Absolutely. Every site includes foundational on-page SEO: logical heading structure, meta titles and descriptions, image alt text, schema markup, and clean URL slugs — a solid base for any SEO strategy you build on later.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">Can I manage the website myself after it's built? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Yes. I set up an intuitive editing experience and walk you through how to make changes  updating text, swapping images, or adding new pages  without needing any technical background.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="هل يمكنني إدارة الموقع بنفسي بعد بنائه؟">Can I manage the website myself after it's built?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="نعم. أُعدّ لك تجربة تحرير سهلة وأشرح لك كيفية إجراء التغييرات — تحديث النصوص، أو تبديل الصور، أو إضافة صفحات جديدة — دون الحاجة إلى أي خلفية تقنية.">Yes. I set up an intuitive editing experience and walk you through how to make changes  updating text, swapping images, or adding new pages  without needing any technical background.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">What about third-party integrations or payment systems? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">I can integrate payment gateways, CRMs, booking tools, email marketing platforms, and custom APIs. If your business runs on a specific tool, there's a good chance I can connect it to your site.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="ماذا عن التكاملات الخارجية أو أنظمة الدفع؟">What about third-party integrations or payment systems?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="يمكنني دمج بوابات الدفع، وأنظمة إدارة العملاء (CRM)، وأدوات الحجز، ومنصّات التسويق عبر البريد، وواجهات API المخصّصة. إذا كان نشاطك يعتمد على أداة معيّنة، فالأرجح أنني أستطيع ربطها بموقعك.">I can integrate payment gateways, CRMs, booking tools, email marketing platforms, and custom APIs. If your business runs on a specific tool, there's a good chance I can connect it to your site.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">Do you build online stores with WooCommerce? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Yes  full WooCommerce stores including product catalog setup, payment gateways, shipping rules, inventory management, and order tracking integrations, all optimized for conversion.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="هل تبني متاجر إلكترونية باستخدام WooCommerce؟">Do you build online stores with WooCommerce?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="نعم — متاجر WooCommerce كاملة تشمل إعداد كتالوج المنتجات، وبوابات الدفع، وقواعد الشحن، وإدارة المخزون، وتكاملات تتبّع الطلبات، وكلها محسّنة للتحويل.">Yes  full WooCommerce stores including product catalog setup, payment gateways, shipping rules, inventory management, and order tracking integrations, all optimized for conversion.</div></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-trigger">How does the site look on phones and tablets? <span class="faq-icon">+</span></button>
-          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body">Every website I build is fully responsive and tested across a range of real devices and screen sizes before delivery  so the experience is consistent and polished whether someone visits on desktop or mobile.</div></div></div>
+          <button class="faq-trigger"><span class="faq-q" data-ar="كيف يبدو الموقع على الهواتف والأجهزة اللوحية؟">How does the site look on phones and tablets?</span> <span class="faq-icon">+</span></button>
+          <div class="faq-body-wrap"><div class="faq-body-inner"><div class="faq-body" data-ar="كل موقع أبنيه متجاوب بالكامل ومُختبر على مجموعة من الأجهزة وأحجام الشاشات الحقيقية قبل التسليم — لتكون التجربة متسقة ومتقنة سواء زار أحدهم من سطح المكتب أو الجوّال.">Every website I build is fully responsive and tested across a range of real devices and screen sizes before delivery  so the experience is consistent and polished whether someone visits on desktop or mobile.</div></div></div>
         </div>
       </div>
     </div>
@@ -602,5 +604,7 @@
 
 <!-- Motion engine (shared with Home.html) -->
 <script src="motion.js"></script>
+<!-- Bilingual EN ⇄ AR toggle (shared site-wide) -->
+<script src="lang.js"></script>
 </body>
 </html>
