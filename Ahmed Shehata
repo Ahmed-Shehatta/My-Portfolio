@@ -13,6 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Gate all opacity:0 motion states behind JS: if scripts fail, content stays visible. -->
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Apply saved language before paint to avoid a flash of the wrong direction. -->
+  <script>(function(){try{if(localStorage.getItem('siteLang')==='ar'){var d=document.documentElement;d.lang='ar';d.dir='rtl';d.classList.add('ar-mode');}}catch(e){}})();</script>
+  <!-- Critical: the carousel/marquee rely on LTR scroll math and are measured by
+       scripts that run before lang.css loads, so pin their direction here. -->
+  <style>html[dir="rtl"] .projects-grid,html[dir="rtl"] .tm-marquee,html[dir="rtl"] .tm-track{direction:ltr}</style>
   <title>Ahmed Shehata — WordPress Developer for Businesses</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -42,7 +47,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="Services.html">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="projects.html">Projects</a></li>
     </ul>
   </nav>
 
@@ -57,19 +62,19 @@
 
     <div class="hero-inner">
     <!-- Tag: specialisation -->
-    <div class="hero-tag">WordPress Developer</div>
+    <div class="hero-tag" data-ar="مطوّر ووردبريس">WordPress Developer</div>
 
     <!-- Name -->
     <h1>Ahmed<br><span>Shehata</span></h1>
 
     <!-- NEW: Niche badge  specific target market -->
-    <div class="hero-niche">
+    <div class="hero-niche" data-ar='<span class="hero-niche-dot"></span> مطاعم · كافيهات · صالونات · عيادات · متاجر'>
       <span class="hero-niche-dot"></span>
       Restaurants · Cafés · Salons · Clinics · Retail
     </div>
 
     <!-- NEW: Sub  value-focused, not poetry -->
-    <p class="hero-sub">
+    <p class="hero-sub" data-ar="أبني <strong>مواقع ووردبريس احترافية</strong> للأنشطة التجارية التي تريد حضورًا موثوقًا على الإنترنت وجذب المزيد من العملاء بسرعة.">
       I build <strong>professional WordPress websites</strong> for businesses that want to look credible online and attract more customers fast.
     </p>
 
@@ -77,36 +82,36 @@
 <div class="hero-proof">
   <div class="hero-proof-item">
     <span class="hero-proof-num">WordPress</span>
-    <span class="hero-proof-label">Specialist</span>
+    <span class="hero-proof-label" data-ar="متخصص">Specialist</span>
   </div>
   <div class="hero-proof-divider"></div>
   <div class="hero-proof-item">
     <span class="hero-proof-num">AR / EN</span>
-    <span class="hero-proof-label">Bilingual</span>
+    <span class="hero-proof-label" data-ar="ثنائي اللغة">Bilingual</span>
   </div>
 </div>
 
     <!-- CTA: Primary only + WhatsApp secondary -->
     <div class="hero-actions">
-      <a href="#projects" class="hero-cta">View My Work</a>
-      <a href="https://wa.me/201096973281" class="hero-ghost" target="_blank" rel="noopener">Start a Project</a>
+      <a href="#projects" class="hero-cta" data-ar="شاهد أعمالي">View My Work</a>
+      <a href="https://wa.me/201096973281" class="hero-ghost" target="_blank" rel="noopener" data-ar="ابدأ مشروعك">Start a Project</a>
     </div>
     </div><!-- /hero-inner -->
   </section>
 
   <!-- ABOUT SNIPPET -->
   <section id="about-snippet">
-    <div class="section-label reveal">About</div>
+    <div class="section-label reveal" data-ar="من أنا">About</div>
     <div class="about-snippet">
       <div class="about-img-wrap reveal" data-reveal="left">
         <img src="5-5.jpg" alt="Ahmed Shehata" data-parallax-img="0.12">
         <span class="img-sheen"></span>
       </div>
       <div class="about-text">
-        <h2 class="reveal" data-delay="0">Built on <em>craft,</em><br>driven by results.</h2>
-        <p class="reveal" data-delay="90">I'm a self-taught WordPress developer focused on building clean, fast websites that help businesses grow online. I specialise in WordPress, Elementor, and WooCommerce from business portfolios to full e-commerce stores.</p>
-        <p class="reveal" data-delay="180">Every project gets the same hands-on attention, from initial design to final deployment.</p>
-        <a href="about.html" class="about-link reveal magnetic" data-delay="270">More about me</a>
+        <h2 class="reveal" data-delay="0" data-ar="مبنيّ على <em>الإتقان،</em><br>ومدفوع بالنتائج.">Built on <em>craft,</em><br>driven by results.</h2>
+        <p class="reveal" data-delay="90" data-ar="أنا مطوّر ووردبريس علّمت نفسي بنفسي، أركّز على بناء مواقع نظيفة وسريعة تساعد الأنشطة التجارية على النمو عبر الإنترنت. أتخصص في ووردبريس وElementor وWooCommerce — من مواقع الأعمال إلى متاجر التجارة الإلكترونية الكاملة.">I'm a self-taught WordPress developer focused on building clean, fast websites that help businesses grow online. I specialise in WordPress, Elementor, and WooCommerce from business portfolios to full e-commerce stores.</p>
+        <p class="reveal" data-delay="180" data-ar="كل مشروع يحصل على نفس الاهتمام العملي، من التصميم الأولي حتى الإطلاق النهائي.">Every project gets the same hands-on attention, from initial design to final deployment.</p>
+        <a href="about.html" class="about-link reveal magnetic" data-delay="270" data-ar="المزيد عني">More about me</a>
       </div>
     </div>
   </section>
@@ -115,34 +120,34 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <div class="section-label reveal">Services</div>
+    <div class="section-label reveal" data-ar="الخدمات">Services</div>
     <div class="services-grid">
       <div class="service-card reveal spotlight" data-delay="0">
         <div class="service-num">01</div>
-        <h3>Professional Web Development</h3>
-        <p>Custom WordPress websites built from scratch  clean code, fast loading, and designed to impress clients and customers.</p>
+        <h3 data-ar="تطوير مواقع احترافية">Professional Web Development</h3>
+        <p data-ar="مواقع ووردبريس مخصّصة تُبنى من الصفر — كود نظيف وتحميل سريع، ومصمّمة لتُبهر العملاء والزوّار.">Custom WordPress websites built from scratch  clean code, fast loading, and designed to impress clients and customers.</p>
       </div>
       <div class="service-card reveal spotlight" data-delay="100">
         <div class="service-num">02</div>
-        <h3>WooCommerce Stores</h3>
-        <p>Full e-commerce solutions with product management, payment integration, and optimized checkout experiences.</p>
+        <h3 data-ar="متاجر WooCommerce">WooCommerce Stores</h3>
+        <p data-ar="حلول تجارة إلكترونية متكاملة مع إدارة للمنتجات، وربط لوسائل الدفع، وتجربة دفع محسّنة.">Full e-commerce solutions with product management, payment integration, and optimized checkout experiences.</p>
       </div>
       <div class="service-card reveal spotlight" data-delay="200">
         <div class="service-num">03</div>
-        <h3>WordPress Optimization</h3>
-        <p>Speed optimization, SEO setup, security hardening, and plugin management to keep your site performing at its best.</p>
+        <h3 data-ar="تحسين ووردبريس">WordPress Optimization</h3>
+        <p data-ar="تحسين السرعة، وإعداد السيو، وتقوية الحماية، وإدارة الإضافات للحفاظ على أداء موقعك في أفضل حالاته.">Speed optimization, SEO setup, security hardening, and plugin management to keep your site performing at its best.</p>
       </div>
       <div class="service-card reveal spotlight" data-delay="300">
         <div class="service-num">04</div>
-        <h3>Site Redesign & Migration</h3>
-        <p>Transform outdated websites into modern, high-converting experiences  including migrations from Squarespace and Wix.</p>
+        <h3 data-ar="إعادة تصميم ونقل المواقع">Site Redesign & Migration</h3>
+        <p data-ar="تحويل المواقع القديمة إلى تجارب عصرية عالية التحويل — بما في ذلك النقل من Squarespace وWix.">Transform outdated websites into modern, high-converting experiences  including migrations from Squarespace and Wix.</p>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-label reveal">Projects</div>
+  <div class="section-label reveal" data-ar="المشاريع">Projects</div>
 
   <div class="projects-carousel-wrap">
     <button class="carousel-arrow carousel-prev" onclick="scrollCarousel(-1)" aria-label="Previous project">&#8592;</button>
@@ -153,7 +158,7 @@
         <img src="الرئيسيه.png" alt="ارث العقاريه" class="project-img">
         <div class="project-info">
            <h3>Erth Real Estate</h3>
-          <p>Real Estate</p>
+          <p data-ar="عقارات">Real Estate</p>
         </div>
       </div>
 
@@ -161,7 +166,7 @@
         <img src="d home.png" alt="Dyari Real Estate" class="project-img">
         <div class="project-info">
            <h3>Dyari Real Estate</h3>
-          <p>Real Estate</p>
+          <p data-ar="عقارات">Real Estate</p>
         </div>
       </div>
 
@@ -169,7 +174,7 @@
         <img src="Home Page.png" alt="Ferra" class="project-img">
         <div class="project-info">
            <h3>Ferra Restaurant</h3>
-          <p>Restaurant</p>
+          <p data-ar="مطعم">Restaurant</p>
         </div>
       </div>
 
@@ -177,7 +182,7 @@
         <img src="home.png" alt="Smile Care" class="project-img">
         <div class="project-info">
            <h3>Smile Care Clinic</h3>
-          <p>Dental Clinic</p>
+          <p data-ar="عيادة أسنان">Dental Clinic</p>
         </div>
       </div>
 
@@ -187,9 +192,99 @@
   </div>
 
   <div class="projects-more reveal">
-    <a href="projects.html" class="hero-cta">View All Projects</a>
+    <a href="projects.html" class="hero-cta" data-ar="كل المشاريع">View All Projects</a>
   </div>
 
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- TESTIMONIALS                           -->
+<!-- ══════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="section-label reveal" data-ar="آراء العملاء">Testimonials</div>
+  <p class="testimonials-intro reveal" data-ar="ماذا يقول العملاء عن العمل معي.">What clients say about working with me.</p>
+
+  <div class="tm-marquee reveal">
+    <div class="tm-track">
+      <!-- Set 1 -->
+      <div class="tm-group">
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="حوّل أحمد أفكارنا إلى موقع سريع وأنيق يمتدحه عملاؤنا باستمرار. كانت العملية كلها سلسة للغاية.">Ahmed turned our ideas into a fast, elegant website that our customers constantly compliment. The whole process felt effortless.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">F</span>
+            <span class="tm-person"><strong>Ferra Restaurant</strong><span data-ar="صاحب المطعم">Owner</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="أصبح موقعنا الجديد أخيرًا بمستوى فخامة العقارات التي نبيعها. ازدادت الاستفسارات الجادّة خلال الشهر الأول من الإطلاق.">Our new site finally looks as premium as the properties we sell. Serious inquiries went up within the first month of launch.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">D</span>
+            <span class="tm-person"><strong>Dyari Real Estate</strong><span data-ar="المدير">Manager</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="فهم تمامًا ما تحتاجه العيادة — تصميم نظيف ومطمئن وسهل الحجز. لم تكن طلبات المواعيد لدينا أعلى من الآن.">He understood exactly what a clinic needs — clean, reassuring, and easy to book. Our appointment requests have never been higher.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">S</span>
+            <span class="tm-person"><strong>Smile Care Clinic</strong><span data-ar="المؤسِّس">Founder</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="محترف وسريع الاستجابة ومهتم فعليًا بالنتيجة. سلّم أحمد العمل قبل الموعد ودعمنا لفترة طويلة بعد الإطلاق.">Professional, responsive, and genuinely invested in the result. Ahmed delivered ahead of schedule and supported us long after launch.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">E</span>
+            <span class="tm-person"><strong>Erth Real Estate</strong><span data-ar="المدير">Director</span></span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="tm-group" aria-hidden="true">
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="حوّل أحمد أفكارنا إلى موقع سريع وأنيق يمتدحه عملاؤنا باستمرار. كانت العملية كلها سلسة للغاية.">Ahmed turned our ideas into a fast, elegant website that our customers constantly compliment. The whole process felt effortless.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">F</span>
+            <span class="tm-person"><strong>Ferra Restaurant</strong><span data-ar="صاحب المطعم">Owner</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="أصبح موقعنا الجديد أخيرًا بمستوى فخامة العقارات التي نبيعها. ازدادت الاستفسارات الجادّة خلال الشهر الأول من الإطلاق.">Our new site finally looks as premium as the properties we sell. Serious inquiries went up within the first month of launch.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">D</span>
+            <span class="tm-person"><strong>Dyari Real Estate</strong><span data-ar="المدير">Manager</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="فهم تمامًا ما تحتاجه العيادة — تصميم نظيف ومطمئن وسهل الحجز. لم تكن طلبات المواعيد لدينا أعلى من الآن.">He understood exactly what a clinic needs — clean, reassuring, and easy to book. Our appointment requests have never been higher.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">S</span>
+            <span class="tm-person"><strong>Smile Care Clinic</strong><span data-ar="المؤسِّس">Founder</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="tm-card">
+          <div class="tm-stars">★★★★★</div>
+          <blockquote data-ar="محترف وسريع الاستجابة ومهتم فعليًا بالنتيجة. سلّم أحمد العمل قبل الموعد ودعمنا لفترة طويلة بعد الإطلاق.">Professional, responsive, and genuinely invested in the result. Ahmed delivered ahead of schedule and supported us long after launch.</blockquote>
+          <figcaption>
+            <span class="tm-avatar">E</span>
+            <span class="tm-person"><strong>Erth Real Estate</strong><span data-ar="المدير">Director</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- MODAL -->
@@ -1166,6 +1261,90 @@ body::selection{
   font-variant-numeric: tabular-nums;
 }
 
+    /* ── TESTIMONIALS ── */
+    .testimonials-intro {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: -1.75rem auto 3rem;
+      max-width: 480px;
+    }
+    .tm-marquee {
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+      -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+              mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .tm-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: tmScroll 44s linear infinite;
+    }
+    .tm-marquee:hover .tm-track { animation-play-state: paused; }
+    .tm-group { display: flex; gap: 1.5rem; flex-shrink: 0; }
+    @keyframes tmScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(-50% - 0.75rem)); }
+    }
+
+    .tm-card {
+      flex: 0 0 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--dark-2);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .tm-card:hover {
+      border-color: rgba(167,139,250,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(38,24,124,0.3);
+    }
+    .tm-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.15em; }
+    .tm-card blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text);
+      font-style: italic;
+    }
+    .tm-card figcaption {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 0.5px solid var(--border);
+    }
+    .tm-avatar {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      background: linear-gradient(135deg, rgba(167,139,250,0.25), rgba(38,24,124,0.55));
+      border: 0.5px solid rgba(167,139,250,0.35);
+    }
+    .tm-person { display: flex; flex-direction: column; line-height: 1.35; }
+    .tm-person strong { font-weight: 500; font-size: 0.9rem; color: var(--text); }
+    .tm-person span { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tm-track { animation: none; }
+      .tm-marquee { overflow-x: auto; }
+    }
+
     /* ── CONTACT ── */
     .contact-section {
       background: linear-gradient(135deg, var(--dark-2) 0%, var(--primary-dark) 100%);
@@ -1222,6 +1401,7 @@ body::selection{
       .stats-grid { grid-template-columns: 1fr; max-width: 320px; }
       .project-card { flex: 0 0 80%; } /* one full card + a peek of the next */
       .carousel-arrow { display: none; }
+      .tm-card { flex-basis: 280px; padding: 1.5rem; }
     }
 
   </style>
@@ -1588,5 +1768,7 @@ body::selection{
 
 <!-- Motion engine (shared with Services.html) -->
 <script src="motion.js"></script>
+<!-- Bilingual EN ⇄ AR toggle (shared site-wide) -->
+<script src="lang.js"></script>
 </body>
 </html>
