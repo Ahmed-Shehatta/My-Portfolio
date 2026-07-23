@@ -1,0 +1,98 @@
+/* ──────────────────────────────────────────────────────────────
+   Language toggle button + RTL / Arabic styling.
+   Loaded (injected) by lang.js on every page.
+   ────────────────────────────────────────────────────────────── */
+
+/* ── Toggle button (matches the nav pill language) ── */
+.lang-toggle {
+  font-family: 'Readex Pro', 'DM Sans', sans-serif;
+  font-weight: 400;
+  background: rgba(167, 139, 250, 0.12);
+  border: 0.5px solid rgba(167, 139, 250, 0.35);
+  color: #c4b5fd;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-inline-start: 0.6rem;
+  line-height: 1;
+}
+.lang-toggle:hover {
+  background: rgba(167, 139, 250, 0.25);
+  border-color: rgba(167, 139, 250, 0.6);
+  color: #fff;
+}
+
+/* ── Arabic typography ──
+   Cormorant Garamond has no Arabic glyphs, so any element styled with it
+   falls back to a mismatched serif. Unify the whole page on Readex rather
+   than chasing individual selectors (.sli-title, .includes-title, .who, …).
+   The brand wordmark keeps its Latin type. */
+html.ar-mode *:not(.nav-logo) {
+  font-family: 'Readex Pro', sans-serif !important;
+}
+html.ar-mode .nav-logo {
+  font-family: 'Cormorant Garamond', serif !important;
+}
+
+/* ── Justified Arabic body text ──
+   Only long-form copy that is already start-aligned. Centred text
+   (hero subs, card blurbs, contact + footer) must stay centred — justifying
+   it silently forces it to the start edge and breaks the layout.
+   Desktop only: several of these blocks centre at the mobile breakpoint, and
+   justified Arabic on a narrow column opens ugly gaps between words. */
+@media (min-width: 769px) {
+  html.ar-mode .about-text p,
+  html.ar-mode .sli-desc,
+  html.ar-mode .include-item p,
+  html.ar-mode .type-card p,
+  html.ar-mode .what-header p,
+  html.ar-mode .faq-body,
+  html.ar-mode .showcase-body p,
+  html.ar-mode .rule-text,
+  html.ar-mode .block-body p,
+  html.ar-mode .policy-list li {
+    text-align: justify;
+    text-align-last: start;
+    text-justify: inter-word;
+  }
+}
+
+/* ── RTL layout ── */
+html[dir="rtl"] .hero-niche,
+html[dir="rtl"] .hero-proof,
+html[dir="rtl"] .hero-actions {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal-scroll components rely on LTR scroll math — keep their
+   flow LTR, but let the Arabic text inside each card read RTL.
+   The overflow CONTAINER must be ltr too: an rtl container anchors an
+   oversized child to its right edge, so the marquee would start mid-track
+   and the loop would visibly jump. */
+html[dir="rtl"] .tm-marquee,
+html[dir="rtl"] .projects-grid,
+html[dir="rtl"] .tm-track {
+  direction: ltr;
+}
+html[dir="rtl"] .project-info,
+html[dir="rtl"] .tm-card {
+  direction: rtl;
+  text-align: right;
+}
+html[dir="rtl"] .tm-card figcaption {
+  flex-direction: row-reverse;
+}
+
+/* Numerals/labels that should stay visually LTR even in Arabic. */
+html[dir="rtl"] .hero-proof-num,
+html[dir="rtl"] .hero-stat-num,
+html[dir="rtl"] .service-num,
+html[dir="rtl"] .process-num {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
